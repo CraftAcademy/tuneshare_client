@@ -16,7 +16,7 @@ describe("User can see a index list of posts", () => {
   })
 
   describe("successfully", () => {
-    it("If the server is runnig", () => {
+    it("If the server is running", () => {
       cy.get("[data-cy='index']").within(() => {
         cy.get("[data-cy='track_data']").should("contain", "All I Want for Christmas Is You", "Mariah Carey")
         cy.get("[data-cy='description']").should("contain", "This is the best christmas song ever! All time favorite!")

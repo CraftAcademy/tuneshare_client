@@ -1,6 +1,4 @@
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { View, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from './src/components/HomeScreen'
@@ -20,10 +18,6 @@ const App = () => {
         />
       </Stack.Navigator>
     </NavigationContainer>
-    // <View>
-    //   <Text>TuneShare</Text>
-    //   <StatusBar style="auto" />
-    // </View>
   )
 }
 
