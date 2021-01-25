@@ -1,14 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { View, Text } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import React from 'react'
+import { View, Text } from 'react-native'
 
 const App = () => {
   return (
-    <View >
+    <View>
       <Text>TuneShare</Text>
       <StatusBar style="auto" />
     </View>
-  );
+  )
 }
 
 export default App
