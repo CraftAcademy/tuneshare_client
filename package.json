@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "cypress": "cypress open",
-    "test": "jest --rootDir=specs --passWithNoTests"
+    "test": "jest --rootDir=specs"
   },
   "dependencies": {
     "expo": "~40.0.0",
