@@ -3,8 +3,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 const App = () => {
-return (
-  <View >
+  return (
+    <View >
       <Text>TuneShare</Text>
       <StatusBar style="auto" />
     </View>
