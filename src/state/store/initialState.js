@@ -1,5 +1,5 @@
 const initialState = {
-  appTitle: "",
+  appTitle: "TuneShare",
   postIndex: []
 }
 
