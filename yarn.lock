@@ -1100,7 +1100,7 @@
     "@babel/preset-env" "^7.4.4"
     "@babel/preset-typescript" "^7.3.3"
 
-"@expo/config-plugins@1.0.16":
+"@expo/config-plugins@1.0.16", "@expo/config-plugins@~1.0.13":
   version "1.0.16"
   resolved "https://registry.yarnpkg.com/@expo/config-plugins/-/config-plugins-1.0.16.tgz#e6fa84fc5f7d4354c34f2ca27dc9c70d828faa35"
   integrity sha512-j94Seae1PHkHdUYN3GPphBOM+XdddEPh9BSer0llRcwIJyB3+eJzefyBQDgEDPvKmAAX+Psc2L5iZOOOuFyqaA==
@@ -3908,6 +3908,15 @@ expo-asset@~8.2.1:
     md5-file "^3.2.3"
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
+
+expo-av@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/expo-av/-/expo-av-9.0.0.tgz#76b5dbb006bfddf5b6ce43151d8f3a9eb66c7fa5"
+  integrity sha512-VAMt/iPNeG33G1ycf2zhlZ+I7Ymuh3FYk9XL85jMrGOn6prW4C1tRp5YczZqgunLd5dzeBhunHCTlZn7WODP6g==
+  dependencies:
+    "@expo/config-plugins" "~1.0.13"
+    lodash "^4.17.15"
+    nullthrows "^1.1.0"
 
 expo-constants@~9.3.3:
   version "9.3.5"
