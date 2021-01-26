@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-const postIndex = () => {
+const PostIndex = () => {
   return (
     <View>
       <Text></Text>
@@ -9,6 +9,6 @@ const postIndex = () => {
   )
 }
 
-export default postIndex
+export default PostIndex
 
 
