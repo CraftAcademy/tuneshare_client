@@ -15,7 +15,6 @@ const HomeScreen = () => {
     <View>
       <FlatList
         testID="post-index"
-        name="index"
         data={posts}
         // keyExtractor={item => post}
         renderItem={({ item }) => <PostIndex post={item} />}
