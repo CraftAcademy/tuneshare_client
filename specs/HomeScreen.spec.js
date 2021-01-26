@@ -33,8 +33,8 @@ describe('<HomeScreen />', () => {
     })
 
     it('renders 3 <Card /> items', () => {
-      const displayPosts = within(screen.getByTestId('post-index'))
-      expect(displayPosts.UNSAFE_getAllByProps('Card')).toHaveLength(3)
+      const listItems = within(screen.getByTestId('post-index'))
+      expect(listItems.UNSAFE_getAllByProps('Card')).toHaveLength(3)
     })
   })
 })

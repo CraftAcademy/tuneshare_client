@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { FlatList, View } from 'react-native'
 import PostService from '../modules/PostService'
-import PostIndex from './PostIndex' 
+import PostIndex from './PostIndex'
 
 const HomeScreen = () => {
-  const { posts } = useSelector(state => state)
+  const { posts } = useSelector((state) => state)
 
   useEffect(() => {
     PostService.index()
@@ -14,8 +14,11 @@ const HomeScreen = () => {
   return (
     <View>
       <FlatList
+        testID="post-index"
+        name="index"
         data={posts}
-        renderItem={({item}) => <PostIndex post={item} />} 
+        // keyExtractor={item => post}
+        renderItem={({ item }) => <PostIndex post={item} />}
       />
     </View>
   )
