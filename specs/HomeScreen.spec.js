@@ -29,7 +29,7 @@ describe('<HomeScreen />', () => {
     });
 
     it('contains post data', () => {
-      expect(screen.getTestId('list').props.data).toHaveLength(3);
+      expect(screen.getByTestId('list').props.data).toHaveLength(3);
     });
 
     it('renders 3 <Text /> items', () => {
