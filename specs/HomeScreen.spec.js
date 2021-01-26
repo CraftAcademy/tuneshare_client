@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import HomeScreen from '../src/components/HomeScreen'
 import initialState from '../src/state/store/initialState'
-// import { posts } from './fixtures/staticPostIndexData'
 
 const posts = [
   {

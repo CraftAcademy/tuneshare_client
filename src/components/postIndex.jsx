@@ -1,16 +1,17 @@
 import React from 'react'
 import { Text } from 'react-native'
 import { Card } from 'react-native-elements'
+import styles from '../styles/styles'
 
 const PostIndex = ({post}) => {
   return (
-    <Card data-cy="post-card">
-      <Card.Title data-cy="body">{post.artists}</Card.Title>
-      <Card.Title >{post.track_name}</Card.Title>
+    <Card style={styles.card_container}>
+      <Card.Title style={styles.track}>{post.track}</Card.Title>
+      <Card.Title style={styles.artists}>{post.artists}</Card.Title>
       <Card.Divider />
-      <Card.Image data-cy="image"resizeMode="cover" source={{ uri: post.image }} >
+      <Card.Image style={styles.image} resizeMode="cover" source={{ uri: post.image }} >
       </Card.Image>
-        <Text name="description">
+        <Text style={styles.description}>
           {post.description}
         </Text>
     </Card>
@@ -18,5 +19,3 @@ const PostIndex = ({post}) => {
 }
 
 export default PostIndex
-
-

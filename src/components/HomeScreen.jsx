@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { FlatList, View } from 'react-native'
 import PostService from '../modules/PostService'
 import PostIndex from './PostIndex'
+import styles from '../styles/styles'
 
 const HomeScreen = () => {
   const { posts } = useSelector((state) => state)
@@ -12,11 +13,10 @@ const HomeScreen = () => {
   }, [])
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         testID="post-index"
         data={posts}
-        // keyExtractor={item => post}
         renderItem={({ item }) => <PostIndex post={item} />}
       />
     </View>
