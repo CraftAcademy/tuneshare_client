@@ -1,6 +1,6 @@
 const initialState = {
   appTitle: "TuneShare",
-  postIndex: []
+  posts: [],
 }
 
 export default initialState

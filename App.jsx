@@ -14,7 +14,7 @@ const App = () => {
         <Stack.Screen
           name="HomeScreen"
           component={HomeScreen}
-          options={{ title: appTitle }}
+          options={() => ({ title: appTitle })}
         />
       </Stack.Navigator>
     </NavigationContainer>

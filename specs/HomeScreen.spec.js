@@ -29,12 +29,12 @@ describe('<HomeScreen />', () => {
     })
 
     it('contains post data', () => {
-      expect(screen.getByTestId('list').props.data).toHaveLength(3)
+      expect(screen.getByTestId('post-index').props.data).toHaveLength(3)
     })
 
-    it('renders 3 <Text /> items', () => {
-      const listItems = within(screen.getByTestId('list'))
-      expect(listItems.UNSAFE_getAllByProps('Text')).toHaveLength(3)
+    it('renders 3 <Card /> items', () => {
+      const displayPosts = within(screen.getByTestId('post-index'))
+      expect(displayPosts.UNSAFE_getAllByProps('Card')).toHaveLength(3)
     })
   })
 })

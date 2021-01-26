@@ -1,17 +1,11 @@
 describe("User can see a index list of posts", () => {
   beforeEach(() => {
     cy.server()
-    cy.intercept(
-      "http://localhost:3000/api", 
-      {
-        fixture: "fixture:postIndex.json"
-      }
-    )
-    // cy.route({
-    //   method: "GET",
-    //   url:  "localhost:3000/api",
-    //   response: "fixture:postIndex.json"
-    // })
+    cy.route({
+      method: "GET",
+      url:  "localhost:3000/api/posts",
+      response: "fixture:postIndex.json"
+    })
     cy.visit("/")
   })
 
