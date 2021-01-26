@@ -3,8 +3,8 @@ describe("User can see a index list of posts", () => {
     cy.server()
     cy.route({
       method: "GET",
-      url:  "localhost:3000/api/posts",
-      response: "fixture:postIndex.json"
+      url:  "http://localhost:3000/api/posts",
+      response: { posts: "fixture:post_index.json" }
     })
     cy.visit("/")
   })
