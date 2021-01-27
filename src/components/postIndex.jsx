@@ -1,30 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { Text, Button } from 'react-native'
+import React from 'react'
+import { Text, View } from 'react-native'
 import { Card } from 'react-native-elements'
-import { Audio } from 'expo-av'
 import styles from '../styles/styles'
+import TrackPlayer from './TrackPlayer'
 
 const PostIndex = ({ post }) => {
-  const [song, setSong] = useState()
-  const playSong = async () => {
-    const { song } = await Audio.Sound.createAsync(
-      { uri: post.preview_url },
-      { shouldPlay: true }
-    )
-    debugger
-    setSong(song)
 
-    await song.playAsync()
-  }
-  useEffect(() => {
-    return song
-      ? () => {
-          song.unloadAsync()
-        }
-      : undefined
-  }, [song])
+  // const trackPreview = (e) => {
+  //   e.preventDefault()
+  //   playSong(e, post)
+  // }
+
   return (
-    <Card style={styles.card_container}>
+    <View style={styles.card_container}>
+    <Card>
       <Card.Title style={styles.track}>{post.track}</Card.Title>
       <Card.Title style={styles.artists}>{post.artists}</Card.Title>
       <Card.Divider />
@@ -35,8 +24,9 @@ const PostIndex = ({ post }) => {
       ></Card.Image>
       <Card.Divider />
       <Text style={styles.description}>{post.description}</Text>
-      <Button title='Play a preview!' onPress={() => playSong} />
     </Card>
+    <TrackPlayer post={post}/>
+    </View>
   )
 }
 
