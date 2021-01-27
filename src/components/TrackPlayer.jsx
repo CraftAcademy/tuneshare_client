@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Audio } from 'expo-av'
 import styles from '../styles/styles'
-import { AntDesign } from '@expo/vector-icons'
+// import Icon from 'react-native-vector-icons/Ionicons'
 
 const TrackPlayer = ({ post }) => {
   let songURI = post.preview_url
@@ -19,13 +19,15 @@ const TrackPlayer = ({ post }) => {
   }
 
   return (
-    <AntDesign
-      style={styles.playButton}
-      name={playback ? 'pausecircle' : 'play'}
-      id={`post${post.id}`}
-      title={playback ? 'Stop Playback' : 'Start Playback'}
-      onPress={playback ? stopPlayback : startPlayback}
-    />
+    <>
+    </>
+  //   <>
+  //     style={styles.playButton}
+  //     name={playback ? 'ios-play-circle-sharp' : 'ios-pause-circle-sharp'}
+  //     id={`post${post.id}`}
+  //     title={playback ? 'Stop Playback' : 'Start Playback'}
+  //     onPress={playback ? stopPlayback : startPlayback}
+  //   </>
   )
 }
 

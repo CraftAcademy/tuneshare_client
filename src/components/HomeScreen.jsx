@@ -17,6 +17,7 @@ const HomeScreen = () => {
       <FlatList
         testID='post-index'
         data={posts}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <PostIndex post={item} />}
       />
     </View>
