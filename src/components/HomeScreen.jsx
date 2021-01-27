@@ -18,6 +18,7 @@ const HomeScreen = () => {
         testID="post-index"
         data={posts}
         renderItem={({ item }) => <PostIndex post={item} />}
+        keyExtractor={item => (Math.floor(Math.random() * 10000) + 1).toString()}
       />
     </View>
   )
