@@ -16,6 +16,6 @@ describe('<App />', () => {
       </Provider>
     )
     expect(screen.getByText('TuneShare')).toBeTruthy()
-    expect(screen.getByText('TuneShare').props.style.fontSize).toEqual(17)
+    expect(screen.getByText('TuneShare').props.style.fontSize).toEqual(35)
   })
 })
