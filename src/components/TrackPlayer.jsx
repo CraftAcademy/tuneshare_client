@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Audio } from 'expo-av'
 import styles from '../styles/styles'
-// import Icon from 'react-native-vector-icons/Ionicons'
+import { Ionicons } from '@expo/vector-icons'
 
 const TrackPlayer = ({ post }) => {
   let songURI = post.preview_url
@@ -19,15 +19,13 @@ const TrackPlayer = ({ post }) => {
   }
 
   return (
-    <>
-    </>
-  //   <>
-  //     style={styles.playButton}
-  //     name={playback ? 'ios-play-circle-sharp' : 'ios-pause-circle-sharp'}
-  //     id={`post${post.id}`}
-  //     title={playback ? 'Stop Playback' : 'Start Playback'}
-  //     onPress={playback ? stopPlayback : startPlayback}
-  //   </>
+    <Ionicons
+      name={playback ? 'ios-pause-circle-sharp' : 'ios-play-circle-sharp'}
+      style={styles.playButton}
+      id={`post${post.id}`}
+      title={playback ? 'Stop Playback' : 'Start Playback'}
+      onPress={playback ? stopPlayback : startPlayback}
+    />
   )
 }
 
