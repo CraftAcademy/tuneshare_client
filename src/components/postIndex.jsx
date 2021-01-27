@@ -1,5 +1,5 @@
 import React from 'react'
-import {  View, Text } from 'react-native'
+import { View, Text } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
@@ -13,10 +13,10 @@ const PostIndex = ({ post }) => {
         <Card.Divider />
         <Card.Image
           style={styles.image}
-          resizeMode='contain'
           source={{ uri: post.image }}
-        ></Card.Image>
-        <TrackPlayer post={post} />
+        >
+          <TrackPlayer post={post} />
+        </Card.Image>
         <Card.Divider />
         <Text style={styles.description}>{post.description}</Text>
       </Card>

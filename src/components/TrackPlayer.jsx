@@ -1,17 +1,15 @@
-import React, {useState} from 'react'
-import { Button, View } from 'react-native'
+import React, { useState } from 'react'
 import { Audio } from 'expo-av'
 import styles from '../styles/styles'
+import { AntDesign } from '@expo/vector-icons'
 
-
-const TrackPlayer = ({post}) => {
+const TrackPlayer = ({ post }) => {
   let songURI = post.preview_url
   const [playback, setPlayback] = useState()
 
-
   async function startPlayback() {
     const playback = new Audio.Sound()
-    await playback.loadAsync({uri: songURI})
+    await playback.loadAsync({ uri: songURI })
     await playback.playAsync()
     setPlayback(playback)
   }
@@ -21,14 +19,13 @@ const TrackPlayer = ({post}) => {
   }
 
   return (
-    <View style={styles.card_container}>
-      <Button
-        id={`post${post.id}`}
-        color={ playback ? 'red' : 'blue'} 
-        title={ playback ? "Stop Playback" : 'Start Playback' }
-        onPress={ playback ? stopPlayback : startPlayback }
-      />
-      </View>
+    <AntDesign
+      style={styles.playButton}
+      name={playback ? 'pausecircle' : 'play'}
+      id={`post${post.id}`}
+      title={playback ? 'Stop Playback' : 'Start Playback'}
+      onPress={playback ? stopPlayback : startPlayback}
+    />
   )
 }
 
