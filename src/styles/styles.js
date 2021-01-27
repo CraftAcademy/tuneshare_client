@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
     position: "relative",
     overflow: "hidden",
     paddingBottom: 10,
-
   },
   artists: {
     fontSize: 20,
@@ -34,10 +33,10 @@ const styles = StyleSheet.create({
   },
   playButton: {
     color: "aliceblue",
-    opacity: 0.4,
+    opacity: 0.6,
     fontSize: 70,
     alignSelf: "center",
-    paddingTop: 40,
+    marginTop: 40,
   },
   overlay: {
     position: 'absolute',

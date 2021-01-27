@@ -11,10 +11,7 @@ const PostIndex = ({ post }) => {
         <Card.Title style={styles.track}>{post.track}</Card.Title>
         <Card.Title style={styles.artists}>{post.artists}</Card.Title>
         <Card.Divider />
-        <Card.Image
-          style={styles.image}
-          source={{ uri: post.image }}
-        >
+        <Card.Image style={styles.image} source={{ uri: post.image }}>
           <TrackPlayer post={post} />
         </Card.Image>
         <Card.Divider />
