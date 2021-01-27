@@ -5,6 +5,11 @@ const rootReducer = (state, action) => {
         ...state,
         posts: action.payload.posts
       }
+      case 'SET_SEARCH_INDEX': 
+      return {
+        ...state,
+        searchResult: action.payload.tracks
+      }
     default:
     return state
   }
