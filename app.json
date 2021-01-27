@@ -3,6 +3,7 @@
     "name": "tuneshare_client",
     "slug": "tuneshare_client",
     "version": "1.0.0",
+    "entryPoint": "./index.js",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
