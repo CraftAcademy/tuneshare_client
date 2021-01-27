@@ -14,9 +14,6 @@ const App = () => {
   const { appTitle } = useSelector(state => state)
   return (
     <>
-      {/* <Appbar.Header>
-        <Appbar.Content title={appTitle} />
-      </Appbar.Header> */}
       {/* <NavigationContainer> */}
       {/* </NavigationContainer> */}
           {/* <Stack.Navigator>

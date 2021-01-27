@@ -1,45 +1,41 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import { StyleSheet, Text, ScrollView, TextInput, Button, FlatList } from 'react-native'
 import { ListItem, SearchBar } from 'react-native-elements'
-import { FlatList } from 'react-native-gesture-handler'
 import TrackService from '../modules/TrackService'
 import { useSelector } from 'react-redux'
 
 const PostForm = () => {
-  //const [search, setSearch] = useState()
-
+  const [search, setSearch] = useState()
   const { searchResult } = useSelector(state => state)
 
-  // useEffect(() => {
-  //   TrackService.index(index)
-  // }, [])
-
   return (
-    <View>
+    <ScrollView>
+      <Text>New post!</Text>
       <SearchBar
         placeholder='Search here...'
         onChangeText={text => {
-          TrackService.index(text)
-          //setSearch(text)
+          TrackService.index(text);
+          setSearch(text);
         }}
-        //value={search}
+        value={search}
       />
-      <Text>New post!</Text>
-      <TextInput placeholder='Text' />
-      <Button title='Submit' />
       <FlatList
         data={searchResult}
         renderItem={({ item }) => (
-          <ListItem
-            track={item.track}
-            artitsts={item.artitsts}
-            image={item.image}
-            preview={item.preview}
-          />
+          <ListItem>
+            <ListItem.Title>
+              {item.track}
+            </ListItem.Title>
+            <ListItem.Subtitle>
+              {item.artists}
+            </ListItem.Subtitle>
+          </ListItem>
         )}
         keyExtractor={item => item.preview}
       />
-    </View>
+      <TextInput placeholder='Text' />
+      <Button title='Submit' />
+    </ScrollView>
   )
 }
 
