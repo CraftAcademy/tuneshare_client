@@ -33,33 +33,30 @@ describe('<PostForm />', () => {
   const mockStore = configureStore([])
   const store = mockStore({ ...initialState, tracks: tracks })
   const useSelectorMock = jest.spyOn(Redux, 'useSelector')
+  let screen
   beforeEach(() => {
     useSelectorMock.mockClear()
+    screen = render(
+      <Provider store={store}>
+        <PostForm />
+      </Provider>
+    )
   })
-  describe('<Flatlist />', () => {
-    let screen
-    beforeEach(() => {
-      screen = render(
-        <Provider store={store}>
-          <PostForm />
-        </Provider>
-      )
-    })
+  beforeEach(() => {})
 
-    it('calls useSelector hook', () => {
-      expect(useSelectorMock).toHaveBeenCalled()
-    })
+  it('calls useSelector hook', () => {
+    expect(useSelectorMock).toHaveBeenCalled()
+  })
 
-    it('contains search input', () => {
-      expect(screen.getByTestId('searchInput')).toBeTruthy()
-    })
+  it('contains search input', () => {
+    expect(screen.getByTestId('searchInput')).toBeTruthy()
+  })
 
-    it('contains search button', () => {
-      expect(screen.getByTestId('searchButton')).toBeTruthy()
-    })
+  it('contains search button', () => {
+    expect(screen.getByTestId('searchButton')).toBeTruthy()
+  })
 
-    it('contains search results', () => {
-      expect(screen.getByTestId('searchResults')).toBeTruthy()
-    })
+  it('contains search results', () => {
+    expect(screen.getByTestId('searchResults')).toBeTruthy()
   })
 })
