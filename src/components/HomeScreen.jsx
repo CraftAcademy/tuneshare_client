@@ -6,7 +6,7 @@ import PostIndex from './PostIndex'
 import styles from '../styles/styles'
 
 const HomeScreen = () => {
-  const { posts } = useSelector((state) => state)
+  const { posts } = useSelector(state => state)
 
   useEffect(() => {
     PostService.index()
@@ -15,8 +15,9 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        testID="post-index"
+        testID='post-index'
         data={posts}
+        keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => <PostIndex post={item} />}
         keyExtractor={item => (Math.floor(Math.random() * 10000) + 1).toString()}
       />

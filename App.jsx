@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from './src/components/HomeScreen'
 import { useSelector } from 'react-redux'
+import styles from './src/styles/styles'
 
 import PostForm from './src/components/PostForm'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -30,6 +31,19 @@ const App = () => {
         </Tab.Navigator>
       </NavigationContainer>
     </>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name='HomeScreen'
+          component={HomeScreen}
+          options={() => ({
+            title: appTitle,
+            headerStyle: styles.mainHeader,
+            headerTitleStyle: styles.appTitle,
+          })}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
