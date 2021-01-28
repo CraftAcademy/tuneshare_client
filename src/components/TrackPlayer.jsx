@@ -4,7 +4,7 @@ import styles from '../styles/styles'
 import { Ionicons } from '@expo/vector-icons'
 
 const TrackPlayer = ({ post }) => {
-  let songURI = post.preview_url
+  let songURI = post.preview
   const [playback, setPlayback] = useState()
 
   async function startPlayback() {

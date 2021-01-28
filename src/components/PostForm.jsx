@@ -12,15 +12,18 @@ const PostForm = () => {
     <ScrollView>
       <Text>New post!</Text>
       <TextInput
+        testID='searchInput'
         placeholder='Search here...'
         onChangeText={text => setSearch(text)}
         value={search || ''}
       />
       <Button
+        testID='searchButton'
         title="Search"
         onPress={() => TrackService.index(search)}
       />
-        <FlatList
+      <FlatList
+        testID='searchResults'
           data={searchResult}
           renderItem={({ item }) => (
             <ListItem>

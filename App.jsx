@@ -31,19 +31,19 @@ const App = () => {
         </Tab.Navigator>
       </NavigationContainer>
     </>
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name='HomeScreen'
-          component={HomeScreen}
-          options={() => ({
-            title: appTitle,
-            headerStyle: styles.mainHeader,
-            headerTitleStyle: styles.appTitle,
-          })}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <Stack.Navigator>
+    //     <Stack.Screen
+    //       name='HomeScreen'
+    //       component={HomeScreen}
+    //       options={() => ({
+    //         title: appTitle,
+    //         headerStyle: styles.mainHeader,
+    //         headerTitleStyle: styles.appTitle,
+    //       })}
+    //     />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
   )
 }
 
