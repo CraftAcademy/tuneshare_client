@@ -1,17 +1,17 @@
 const rootReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_POSTS_INDEX': 
+    case 'SET_POSTS_INDEX':
       return {
         ...state,
-        posts: action.payload.posts
+        posts: action.payload.posts,
       }
-      case 'SET_SEARCH_INDEX': 
+    case 'SET_SEARCH_INDEX':
       return {
         ...state,
-        searchResult: action.payload.tracks
+        searchResult: action.payload.tracks,
       }
     default:
-    return state
+      return state
   }
 }
 

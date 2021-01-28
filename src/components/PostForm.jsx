@@ -1,12 +1,5 @@
 import React, { useState } from 'react'
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  Button,
-  FlatList,
-  SafeAreaView,
-} from 'react-native'
+import { TextInput, Button, FlatList, SafeAreaView } from 'react-native'
 import { ListItem } from 'react-native-elements'
 import TrackService from '../modules/TrackService'
 import { useSelector } from 'react-redux'
@@ -31,18 +24,16 @@ const PostForm = () => {
       <FlatList
         testID='searchResults'
         data={searchResult}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <ListItem>
             <ListItem.Title>{item.track}</ListItem.Title>
             <ListItem.Subtitle>{item.artists}</ListItem.Subtitle>
           </ListItem>
         )}
-        keyExtractor={item => item.id}
       />
     </SafeAreaView>
   )
 }
 
 export default PostForm
-
-const styles = StyleSheet.create({})

@@ -11,7 +11,7 @@ const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
 const HomeStack = () => {
-  const { appTitle } = useSelector((state) => state)
+  const { appTitle } = useSelector(state => state)
   return (
     <Stack.Navigator>
       <Stack.Screen
