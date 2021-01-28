@@ -11,10 +11,11 @@ const rootReducer = (state, action) => {
         searchResult: action.payload.tracks,
       }
 
-    case 'CLEAR_SEARCH_INDEX':
+    case 'SET_TRACK_DETAILS':
       return {
         ...state,
         searchResult: null,
+        trackDetails: action.payload,
       }
     default:
       return state

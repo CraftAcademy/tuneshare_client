@@ -24,4 +24,11 @@ describe('User can create a post', () => {
     cy.get('[data-testid="result-1"]').click()
     cy.get('[data-testid="searchResults"]').should('not.be.visible')
   })
+
+  it('User can see a preview of selected song', () => {
+    cy.get('[data-testid="result-2"]').click()
+    cy.get('[data-testid="trackPreview"]')
+      .should('contain', 'Love Story')
+      .and('contain', 'Sarah Cothran')
+  })
 })

@@ -1,7 +1,8 @@
 const initialState = {
-  appTitle: "TuneShare",
+  appTitle: 'TuneShare',
   posts: [],
-  searchResult: []
+  searchResult: [],
+  trackDetails: null,
 }
 
 export default initialState
