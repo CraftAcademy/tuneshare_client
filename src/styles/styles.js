@@ -62,6 +62,15 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 40,
   },
+  postDescription: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    margin: 20,
+  },
+  postButton: {
+    backgroundColor: 'grey',
+    alignSelf: 'center'
+  }
 })
 
 export default styles

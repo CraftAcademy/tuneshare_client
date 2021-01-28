@@ -8,6 +8,20 @@ const PostService = {
     let response = await axios.get(`${API_URL}/posts`)
     store.dispatch({ type: 'SET_POSTS_INDEX', payload: response.data })
   },
+  async create(trackDetails, description) {
+    let response = await axios.post(`${API_URL}/posts`,
+    {
+      post: {
+        track: trackDetails.track,
+        artists: trackDetails.artists,
+        image: trackDetails.image,
+        preview: trackDetails.preview,
+        description: description
+      }
+    }
+    )
+    store.dispatch({ type: 'SET_SUCCESS_MESSAGE', payload: response.data })
+  }
 }
 
 export default PostService
