@@ -3,6 +3,7 @@ import { TextInput, Button, FlatList, SafeAreaView } from 'react-native'
 import { ListItem } from 'react-native-elements'
 import TrackService from '../modules/TrackService'
 import { useSelector } from 'react-redux'
+import store from '../state/store/store'
 
 const PostForm = () => {
   const [search, setSearch] = useState()
@@ -26,7 +27,10 @@ const PostForm = () => {
         data={searchResult}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
-          <ListItem>
+          <ListItem
+            testID={`result-${item.id}`}
+            onPress={() => store.dispatch({ type: 'CLEAR_SEARCH_INDEX' })}
+          >
             <ListItem.Title>{item.track}</ListItem.Title>
             <ListItem.Subtitle>{item.artists}</ListItem.Subtitle>
           </ListItem>
