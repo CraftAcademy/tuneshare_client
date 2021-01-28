@@ -68,7 +68,8 @@ const PostForm = () => {
         onChangeText={(text) => setDescription(text)}
       />
       <Button 
-        style={styles.postButton} 
+        style={styles.postButton}
+        testID='postButton'
         title='Post'
         onPress={() => PostService.create(trackDetails, description)}
       />

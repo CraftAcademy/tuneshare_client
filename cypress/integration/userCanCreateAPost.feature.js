@@ -14,6 +14,11 @@ describe('User can create a post', () => {
       url: 'http://localhost:3000/api/tracks?q=**',
       response: { tracks: tracks },
     })
+    cy.route({
+      method: 'POST',
+      url: 'http://localhost:3000/api/posts',
+      response: {message: 'Your post was succesfully created!' },
+    })
     cy.visit('/')
     cy.contains('Post').click()
     cy.get('[data-testid="searchInput"]').type('Love Story')
@@ -30,5 +35,12 @@ describe('User can create a post', () => {
     cy.get('[data-testid="trackPreview"]')
       .should('contain', 'Love Story')
       .and('contain', 'Sarah Cothran')
+  })
+
+  it('User can see an alert success message', () => {
+    cy.get('[data-testid="result-2"]').click()
+    cy.get('[data-testid="descriptionInput"]').type('Anyone here??')
+    cy.get('[data-testid="postButton"]').click()
+    cy.contains('Your post was successfully created!').should('be.visible')
   })
 })
