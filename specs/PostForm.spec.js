@@ -42,7 +42,6 @@ describe('<PostForm />', () => {
       </Provider>
     )
   })
-  beforeEach(() => {})
 
   it('calls useSelector hook', () => {
     expect(useSelectorMock).toHaveBeenCalled()
