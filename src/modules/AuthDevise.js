@@ -72,12 +72,13 @@ class Auth {
   tokenHeaders() {
     return this.session
   }
-  signIn(email, password) {
+  signIn(email) {
+    // removed password from args until it's validated
     return new Promise(async (resolve, reject) => {
       try {
         const signInResponse = await axios.post(this.signInUrl, {
           [this.emailInput]: email,
-          [this.passwordField]: password,
+          // [this.passwordField]: password,  SEE ABOVE ^
         })
         this.setSession(signInResponse.headers)
         const validateResponse = await this.validateToken(
