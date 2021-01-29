@@ -10,6 +10,18 @@ const rootReducer = (state, action) => {
         ...state,
         searchResult: action.payload.tracks,
       }
+
+    case 'SET_TRACK_DETAILS':
+      return {
+        ...state,
+        searchResult: null,
+        trackDetails: action.payload,
+      }
+    case 'SET_ERROR_MESSAGE':
+      return {
+        ...state,
+        errorMessage: action.payload,
+      }
     default:
       return state
   }

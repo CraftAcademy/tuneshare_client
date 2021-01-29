@@ -62,6 +62,17 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 40,
   },
+  postDescription: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    margin: 20,
+  },
+  searchInput: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    marginLeft: 20,
+    marginRight: 20,
+  }
 })
 
 export default styles
