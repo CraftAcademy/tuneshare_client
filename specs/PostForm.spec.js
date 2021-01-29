@@ -58,4 +58,12 @@ describe('<PostForm />', () => {
   it('contains search results', () => {
     expect(screen.getByTestId('searchResults')).toBeTruthy()
   })
+
+  it('contains description input', () => {
+    expect(screen.getByTestId('descriptionInput')).toBeTruthy()
+  })
+
+  it('contains post button', () => {
+    expect(screen.getByTestId('postButton')).toBeTruthy()
+  })
 })

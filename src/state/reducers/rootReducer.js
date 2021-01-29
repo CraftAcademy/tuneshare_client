@@ -17,6 +17,11 @@ const rootReducer = (state, action) => {
         searchResult: null,
         trackDetails: action.payload,
       }
+    case 'SET_ERROR_MESSAGE':
+      return {
+        ...state,
+        errorMessage: action.payload,
+      }
     default:
       return state
   }

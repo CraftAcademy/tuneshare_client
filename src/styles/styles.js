@@ -67,9 +67,11 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     margin: 20,
   },
-  postButton: {
-    backgroundColor: 'grey',
-    alignSelf: 'center'
+  searchInput: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    marginLeft: 20,
+    marginRight: 20,
   }
 })
 

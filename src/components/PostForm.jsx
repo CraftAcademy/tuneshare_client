@@ -11,13 +11,14 @@ import PostService from "../modules/PostService";
 const PostForm = (props) => {
   const [search, setSearch] = useState()
   const [description, setDescription] = useState()
-  const { searchResult, trackDetails } = useSelector((state) => state)
+  const { searchResult, trackDetails, errorMessage } = useSelector((state) => state)
 
   return (
     <SafeAreaView>
       <TextInput
+        style={styles.searchInput}
         testID='searchInput'
-        placeholder='Search here...'
+        placeholder='Search a song to create a post!'
         onChangeText={(text) => setSearch(text)}
         value={search || ''}
       />
@@ -25,6 +26,7 @@ const PostForm = (props) => {
         style={styles.searchButton}
         testID='searchButton'
         title='Search'
+        color='black'
         onPress={() => TrackService.index(search)}
       />
       <FlatList
@@ -52,27 +54,33 @@ const PostForm = (props) => {
         )}
       />
       {trackDetails && (
-        <Card testID='trackPreview'>
-          <Card.Title style={styles.track}>{trackDetails.track}</Card.Title>
-          <Card.Title style={styles.artists}>{trackDetails.artists}</Card.Title>
-          <Card.Divider />
-          <Card.Image style={styles.image} source={{ uri: trackDetails.image }}>
-            <TrackPlayer post={trackDetails} />
-          </Card.Image>
-        </Card>
+        <>
+          <Card testID='trackPreview'>
+            <Card.Title style={styles.track}>{trackDetails.track}</Card.Title>
+            <Card.Title style={styles.artists}>{trackDetails.artists}</Card.Title>
+            <Card.Divider />
+            <Card.Image style={styles.image} source={{ uri: trackDetails.image }}>
+              <TrackPlayer post={trackDetails} />
+            </Card.Image>
+          </Card>
+          <TextInput
+            style={styles.postDescription}
+            placeholder='Write a caption!'
+            testID='descriptionInput'
+            onChangeText={(text) => setDescription(text)}
+          />
+          <Button
+            style={styles.postButton}
+            testID='postButton'
+            title='Post'
+            color='black'
+            onPress={() => PostService.create(trackDetails, description, props.navigation.navigate)}
+          />
+        </>
       )}
-      <TextInput
-        style={styles.postDescription}
-        placeholder='Write a caption!'
-        testID='descriptionInput'
-        onChangeText={(text) => setDescription(text)}
-      />
-      <Button 
-        style={styles.postButton}
-        testID='postButton'
-        title='Post'
-        onPress={() => PostService.create(trackDetails, description, props.navigation.navigate)}
-      />
+      <Text testID='errorMessage'>
+        {errorMessage}
+      </Text>
     </SafeAreaView>
   )
 }
