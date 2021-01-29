@@ -4,10 +4,10 @@ import store from '../state/store/store'
 const API_URL = 'http://localhost:3000/api'
 
 const TrackService = {
-  async index(text) {
+  async index(search) {
     let response = await axios.get(`${API_URL}/tracks`, {
       params: {
-        q: text,
+        q: search,
       },
     })
     store.dispatch({ type: 'SET_SEARCH_INDEX', payload: response.data })

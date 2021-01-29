@@ -8,7 +8,7 @@ import store from '../state/store/store'
 import styles from '../styles/styles'
 import PostService from "../modules/PostService";
 
-const PostForm = () => {
+const PostForm = (props) => {
   const [search, setSearch] = useState()
   const [description, setDescription] = useState()
   const { searchResult, trackDetails } = useSelector((state) => state)
@@ -71,7 +71,7 @@ const PostForm = () => {
         style={styles.postButton}
         testID='postButton'
         title='Post'
-        onPress={() => PostService.create(trackDetails, description)}
+        onPress={() => PostService.create(trackDetails, description, props.navigation.navigate)}
       />
     </SafeAreaView>
   )

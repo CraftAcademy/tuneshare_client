@@ -37,10 +37,10 @@ describe('User can create a post', () => {
       .and('contain', 'Sarah Cothran')
   })
 
-  it('User can see an alert success message', () => {
+  it('User can see homescreen after they created a post', () => {
     cy.get('[data-testid="result-2"]').click()
     cy.get('[data-testid="descriptionInput"]').type('Anyone here??')
     cy.get('[data-testid="postButton"]').click()
-    cy.contains('Your post was successfully created!').should('be.visible')
+    cy.contains('TuneShare').should('be.visible')
   })
 })

@@ -8,7 +8,7 @@ const PostService = {
     let response = await axios.get(`${API_URL}/posts`)
     store.dispatch({ type: 'SET_POSTS_INDEX', payload: response.data })
   },
-  async create(trackDetails, description) {
+  async create(trackDetails, description, navigate) {
     let response = await axios.post(`${API_URL}/posts`, {
       post: {
         track: trackDetails.track,
@@ -18,7 +18,7 @@ const PostService = {
         description: description,
       },
     })
-    store.dispatch({ type: 'SET_SUCCESS_MESSAGE', payload: response.data })
+    navigate('HomeScreen')
     return alert(`${response.data.message}`)
   },
 }
