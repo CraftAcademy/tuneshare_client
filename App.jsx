@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux'
 import styles from './src/styles/styles'
 import PostForm from './src/components/PostForm'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Fontisto } from '@expo/vector-icons';
+import LoginScreen from './src/components/LoginScreen'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -18,6 +20,13 @@ const HomeStack = () => {
         name='HomeScreen'
         component={HomeScreen}
         options={() => ({
+          headerRight: () => (
+            <Fontisto 
+              name="spotify"
+              onPress={() => props.navigation.navigate("Login")}
+              style={styles.loginButton}
+            />
+          ),
           title: appTitle,
           headerStyle: styles.mainHeader,
           headerTitleStyle: styles.appTitle,
@@ -34,6 +43,7 @@ const App = () => {
         <Tab.Navigator>
           <Tab.Screen name='Feed' component={HomeStack} />
           <Tab.Screen name='Post' component={PostForm} />
+          <Tab.Screen name="Login" component={LoginScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     </>

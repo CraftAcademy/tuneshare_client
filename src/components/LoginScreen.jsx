@@ -10,10 +10,14 @@ const LoginScreen = () => {
     host: 'http://localhost:3000/api'
   })
 
-  
+
   return (
     <View>
-      <Text></Text>
+      <TextInput 
+      />
+      <Pressable>
+        <Text>Login</Text>
+      </Pressable>
     </View>
   )
 }
