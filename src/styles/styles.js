@@ -75,9 +75,24 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     size: 24,
-    color: "#1DB954",
+    color: '#1DB954',
     marginRight: 10,
-  }
+  },
+  loginHitSlop: {
+    bottom: 20,
+    left: 20,
+    right: 20,
+    top: 50,
+  },
+  loginSubmit: {
+    flex: 0.8,
+    backgroundColor: '#128C7E',
+    alignContent: "center",
+    color: "#25D366", 
+    borderRadius: 16,
+    borderWidth: 8,
+    borderColor: "#075E54",
+  },
 })
 
 export default styles

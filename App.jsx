@@ -23,6 +23,7 @@ const HomeStack = () => {
           headerRight: () => (
             <Fontisto
               name='spotify'
+              testID="login-spotify"
               onPress={() => props.navigation.navigate('Login')}
               style={styles.loginButton}
             />
