@@ -30,10 +30,10 @@ describe('User login with devise', () => {
     })
     it('when using spotify credentials', () => {
       cy.get('[data-testid=login-icon]').click()
-      cy.get('[data-testid=login-modal]').within(() => {
+      cy.get('[data-testid=login-screen]').within(() => {
         cy.get('[data-testid=login-email]').type('spotifyuser@spotify.com')
         cy.get('[data-testid=login-submit]').click()
-        cy.get('[data-testid=login-modal]').should('not.be.visible')
+        cy.get('[data-testid=login-screen]').should('not.be.visible')
       })
     });
   })
