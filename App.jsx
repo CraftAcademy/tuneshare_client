@@ -24,9 +24,10 @@ const HomeStack = () => {
           headerRight: () => (
             <Fontisto
               name='spotify'
-              testID="login-spotify"
+              testID="login-icon"
               onPress={() => props.navigation.navigate('Login')}
               style={styles.loginButton}
+              size={44}
             />
           ),
           title: appTitle,
@@ -34,6 +35,7 @@ const HomeStack = () => {
           headerTitleStyle: styles.appTitle,
         })}
       />
+      <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )
 }
@@ -45,7 +47,6 @@ const App = () => {
         <Tab.Navigator>
           <Tab.Screen name='Feed' component={HomeStack} />
           <Tab.Screen name='Post' component={PostForm} />
-          <Tab.Screen name='Login' component={LoginScreen} />
         </Tab.Navigator>
         <FlashMessage position="center" />
       </NavigationContainer>

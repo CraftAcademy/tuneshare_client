@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { View, TextInput, Text, Pressable } from 'react-native'
+import { View, TextInput, Button  } from 'react-native'
 import Auth from '../modules/AuthDevise'
 import { showMessage } from 'react-native-flash-message'
 import { Fontisto } from '@expo/vector-icons'
+import styles from '../styles/styles'
 
 const LoginScreen = props => {
   const [email, setEmail] = useState('')
@@ -24,16 +25,17 @@ const LoginScreen = props => {
   }
 
   return (
-    <View testID='login-screen'>
+    <View style={styles.container} testID='login-screen'>
       <TextInput
         testID='login-email'
+        style={styles.searchInput}
         placeholder='Enter the email you use for your spotify account'
         onChangeText={text => setEmail(text)}
       />
-      <Pressable
+      <Button
         testID='login-submit'
         hitSlop={styles.loginHitSlop}
-        style={styles.loginSubmit}
+        style={styles.loginButton}
         onPress={() => {
           authWithDevise()
           {
@@ -46,25 +48,27 @@ const LoginScreen = props => {
                   icon: 'fm_icon_success@3x.png',
                   backgroundColor: '#833AB4',
                   color: '#FFDC80',
-                  duration: 2000,
+                  opacity: 0.9,
+                  duration: 3000,
                 })
               : showMessage({
                   message: message,
                   type: 'warning',
                   autoHide: true,
                   duration: 6000,
+                  backgroundColor: "#E50914",
+                  color: "#C13584",
+                  opacity: 0.9,
                   hideOnPress: true,
                 })
           }
         }}
       >
-        <Fontisto name='spotify' style={styles.loginButton} />
-        <Text>Login</Text>
-      </Pressable>
+        Login
+      </Button>
     </View>
   )
 }
 
 export default LoginScreen
 
-const styles = StyleSheet.create({})

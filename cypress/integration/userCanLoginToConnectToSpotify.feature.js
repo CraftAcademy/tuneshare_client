@@ -1,3 +1,6 @@
+import { posts } from '../fixtures/staticPostIndexData'
+import { tracks } from '../fixtures/staticSearchIndexData'
+
 describe('User login with devise', () => {
   beforeEach(() => {
     cy.server()
