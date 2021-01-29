@@ -8,6 +8,7 @@ import PostForm from './src/components/PostForm'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Fontisto } from '@expo/vector-icons'
 import LoginScreen from './src/components/LoginScreen'
+import FlashMessage from "react-native-flash-message"
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -46,6 +47,7 @@ const App = () => {
           <Tab.Screen name='Post' component={PostForm} />
           <Tab.Screen name='Login' component={LoginScreen} />
         </Tab.Navigator>
+        <FlashMessage position="center" />
       </NavigationContainer>
     </>
   )

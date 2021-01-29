@@ -24,36 +24,41 @@ const LoginScreen = props => {
   }
 
   return (
-    <View testID="login-screen">
-      <TextInput 
-        testID="login-email"
-        placeholder="Enter the email you use for your spotify account"
+    <View testID='login-screen'>
+      <TextInput
+        testID='login-email'
+        placeholder='Enter the email you use for your spotify account'
         onChangeText={text => setEmail(text)}
       />
       <Pressable
-        testID="login-submit"
+        testID='login-submit'
         hitSlop={styles.loginHitSlop}
         style={styles.loginSubmit}
         onPress={() => {
           authWithDevise()
           {
-            !message && 
-              showMessage({
-                message: "Welcome to TuneShare...",
-                description: "Now share some tunes!",
-                type: "success",
-                autoHide: true,
-                icon: "fm_icon_success@3x.png",
-                backgroundColor: "#833AB4",
-                color: "#FFDC80",
-              })
+            !message
+              ? showMessage({
+                  message: 'Welcome to TuneShare...',
+                  description: 'Now share some tunes!',
+                  type: 'success',
+                  autoHide: true,
+                  icon: 'fm_icon_success@3x.png',
+                  backgroundColor: '#833AB4',
+                  color: '#FFDC80',
+                  duration: 2000,
+                })
+              : showMessage({
+                  message: message,
+                  type: 'warning',
+                  autoHide: true,
+                  duration: 6000,
+                  hideOnPress: true,
+                })
           }
         }}
       >
-        <Fontisto
-              name='spotify'
-              style={styles.loginButton}
-               />
+        <Fontisto name='spotify' style={styles.loginButton} />
         <Text>Login</Text>
       </Pressable>
     </View>
