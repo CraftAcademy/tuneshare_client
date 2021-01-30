@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { View, TextInput, Button  } from 'react-native'
 import Auth from '../modules/AuthDevise'
 import { showMessage } from 'react-native-flash-message'
-import { Fontisto } from '@expo/vector-icons'
 import styles from '../styles/styles'
 
 const LoginScreen = props => {
@@ -33,6 +32,7 @@ const LoginScreen = props => {
         onChangeText={text => setEmail(text)}
       />
       <Button
+      // BUTTON STYLING NEEDS WORK // 
         testID='login-submit'
         hitSlop={styles.loginHitSlop}
         style={styles.loginButton}
@@ -51,9 +51,9 @@ const LoginScreen = props => {
                   opacity: 0.9,
                   duration: 3000,
                 })
-              : showMessage({
-                  message: message,
-                  type: 'warning',
+              : showMessage({             // This ternary isn't going to work
+                  message: message,       // The flash error message should be moved... 
+                  type: 'warning',        // ...out of the login button component
                   autoHide: true,
                   duration: 6000,
                   backgroundColor: "#E50914",

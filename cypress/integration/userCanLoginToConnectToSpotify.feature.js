@@ -38,6 +38,31 @@ describe('User login with devise', () => {
         cy.get('[data-testid=login-submit]').click()
         cy.get('[data-testid=login-screen]').should('not.be.visible')
       })
-    });
+    })
+  })
+
+  describe('is unsuccessful ', () => {
+    beforeEach(() => {
+      cy.route({
+        method: 'POST',
+        url: 'http://localhost:3000/api/auth/sign_in',
+        status: '401',
+        response: {
+          errors: ["Invalid login credentials, please try again"]
+        },
+      })
+      cy.visit('/')
+    })
+    it('with invalid spotify credentials', () => {
+      cy.get('[data-testid=login-icon]').click()
+      cy.get('[data-testid=login-screen]').within(() => {
+        cy.get('[data-testid=login-email]').type('sporp@sporp.com')
+        cy.get('[data-testid=login-submit]').click()
+        cy.get('[data-testid=flash-message]').should(
+          'contain',
+          'Invalid login credentials. Please try again.'
+        )
+      })
+    })
   })
 })

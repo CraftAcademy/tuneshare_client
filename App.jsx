@@ -48,7 +48,7 @@ const App = () => {
           <Tab.Screen name='Feed' component={HomeStack} />
           <Tab.Screen name='Post' component={PostForm} />
         </Tab.Navigator>
-        <FlashMessage position="center" />
+        <FlashMessage testID="flash-message" position="center" />
       </NavigationContainer>
     </>
   )
