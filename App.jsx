@@ -8,7 +8,7 @@ import PostForm from './src/components/PostForm'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Fontisto } from '@expo/vector-icons'
 import LoginScreen from './src/components/LoginScreen'
-import FlashMessage from "react-native-flash-message"
+import FlashMessage from 'react-native-flash-message'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -24,7 +24,7 @@ const HomeStack = () => {
           headerRight: () => (
             <Fontisto
               name='spotify'
-              testID="login-icon"
+              testID='login-icon'
               onPress={() => props.navigation.navigate('Login')}
               style={styles.loginButton}
               size={44}
@@ -35,7 +35,15 @@ const HomeStack = () => {
           headerTitleStyle: styles.appTitle,
         })}
       />
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen
+        options={{
+          title: "Log In",
+          headerStyle: styles.mainHeader,
+          headerTitleStyle: styles.appTitle,
+        }}
+        name='Login'
+        component={LoginScreen}
+      />
     </Stack.Navigator>
   )
 }
@@ -48,7 +56,7 @@ const App = () => {
           <Tab.Screen name='Feed' component={HomeStack} />
           <Tab.Screen name='Post' component={PostForm} />
         </Tab.Navigator>
-        <FlashMessage testID="flash-message" position="center" />
+        <FlashMessage testID='flash-message' position='center' />
       </NavigationContainer>
     </>
   )
