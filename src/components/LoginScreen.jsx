@@ -18,7 +18,7 @@ const LoginScreen = props => {
       .signIn(email)
       .then(resp => {
         props.navigation.navigate('HomeScreen')
-        setMessage()
+        setErrorMessage()
       })
       .catch(e => {
         setErrorMessage(e.response.data.errors)
