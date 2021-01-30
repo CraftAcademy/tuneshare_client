@@ -1,21 +1,27 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
 
-const PostIndex = ({ post }) => {
+const PostIndex = ({ navigation, post }) => {
   return (
-    <View style={styles.card_container}>
-      <Card>
-        <Card.Title style={styles.track}>{post.track}</Card.Title>
-        <Card.Title style={styles.artists}>{post.artists}</Card.Title>
+    <View style={styles.card_container} testID="post-index">
+      <Card testID={`post-card-${post.id}`}>
+        <Card.Title testID={`post-title-${post.id}`} style={styles.track}>{post.track}</Card.Title>
+        <Card.Title testID={`post-artist-${post.id}`} style={styles.artists}>{post.artists}</Card.Title>
         <Card.Divider />
         <Card.Image style={styles.image} source={{ uri: post.image }}>
           <TrackPlayer post={post} />
         </Card.Image>
         <Card.Divider />
-        <Text style={styles.description}>{post.description}</Text>
+        <Text testID={`post-description-${post.id}`} style={styles.description}>{post.description}</Text>
+        {/* <CommentSection/> */}
+        <Button 
+          testID='comment-button'
+          title="Comments"
+          onPress={() => {navigation.navigate("CommentSection")}}
+        />
       </Card>
     </View>
   )

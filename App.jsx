@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import styles from './src/styles/styles'
 import PostForm from './src/components/PostForm'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import CommentSection from './src/components/CommentSection'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -22,6 +23,10 @@ const HomeStack = () => {
           headerStyle: styles.mainHeader,
           headerTitleStyle: styles.appTitle,
         })}
+      />
+      <Stack.Screen
+        name="CommentSection"
+        component={CommentSection}
       />
     </Stack.Navigator>
   )
