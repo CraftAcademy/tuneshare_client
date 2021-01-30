@@ -18,6 +18,16 @@ const HomeStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name='Login'
+        component={LoginScreen}
+        testID='login-screen'
+        options={{
+          title: 'Log In To TuneShare',
+          headerStyle: styles.mainHeader,
+          headerTitleStyle: styles.appTitle,
+        }}
+      />
+      <Stack.Screen
         name='HomeScreen'
         component={HomeScreen}
         options={props => ({
@@ -35,15 +45,6 @@ const HomeStack = () => {
           headerTitleStyle: styles.appTitle,
         })}
       />
-      <Stack.Screen
-        options={{
-          title: "Log In",
-          headerStyle: styles.mainHeader,
-          headerTitleStyle: styles.appTitle,
-        }}
-        name='Login'
-        component={LoginScreen}
-      />
     </Stack.Navigator>
   )
 }
@@ -55,6 +56,7 @@ const App = () => {
         <Tab.Navigator>
           <Tab.Screen name='Feed' component={HomeStack} />
           <Tab.Screen name='Post' component={PostForm} />
+          {/* <Tab.Screen name='Login' component={LoginScreen} /> */}
         </Tab.Navigator>
         <FlashMessage testID='flash-message' position='center' />
       </NavigationContainer>

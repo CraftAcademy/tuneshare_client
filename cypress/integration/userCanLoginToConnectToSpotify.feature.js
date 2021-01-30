@@ -32,7 +32,6 @@ describe('User login with devise', () => {
       cy.visit('/')
     })
     it('when using spotify credentials', () => {
-      cy.get('[data-testid=login-icon]').click()
       cy.get('[data-testid=login-screen]').within(() => {
         cy.get('[data-testid=login-email]').type('spotifyuser@spotify.com')
         cy.get('[data-testid=login-submit]').click()
@@ -40,7 +39,8 @@ describe('User login with devise', () => {
       })
     })
   })
-
+// Sad path isn't really testable until we find a way to get flash message data //  
+// Or use a temporary message display to test routes //
   describe('is unsuccessful ', () => {
     beforeEach(() => {
       cy.route({
