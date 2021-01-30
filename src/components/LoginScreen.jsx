@@ -67,11 +67,14 @@ const LoginScreen = props => {
         }}
       >
         <LinearGradient
-          colors={['#B7FFBF', '#26D701', '#00C301', '#00AB08', '#006400']}
+          colors={['#dd3e54', '#6be585']}
+          start={{ x: 0.1, y: 0.3 }}
+          end={{ x: 0.2, y: 1.0 }}
+          locations={[0.1,0.8]}
           style={styles.linearGradient}
         >
           <Text style={styles.buttonContent}>
-            Sign In With Spotify{' '}
+            Sign In With Spotify
             <Fontisto
               name='spotify'
               style={{ paddingLeft: 16 }}
