@@ -8,7 +8,7 @@ import { Fontisto } from '@expo/vector-icons'
 
 const LoginScreen = props => {
   const [email, setEmail] = useState('')
-  const [errorMessage, setErrorMessage] = useState()
+  const [loginMessage, setLoginMessage] = useState()
   const deviseAuth = new Auth({
     host: 'http://localhost:3000',
   })
@@ -18,10 +18,10 @@ const LoginScreen = props => {
       .signIn(email)
       .then(resp => {
         props.navigation.navigate('HomeScreen')
-        setErrorMessage()
+        setLoginMessage()
       })
       .catch(e => {
-        setErrorMessage(e.response.data.errors)
+        setLoginMessage(e.response.data.errors)
       })
   }
 
@@ -42,7 +42,7 @@ const LoginScreen = props => {
         onPress={() => {
           authWithDevise()
           {
-            !errorMessage
+            !loginMessage
               ? showMessage({
                   message: 'Welcome to TuneShare...',
                   description: 'Now share some tunes!',
@@ -54,7 +54,7 @@ const LoginScreen = props => {
                   duration: 3000,
                 })
               : showMessage({
-                  message: message,
+                  message: loginMessage,
                   type: 'warning',
                   autoHide: true,
                   duration: 6000,
