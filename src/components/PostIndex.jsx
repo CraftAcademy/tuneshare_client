@@ -19,9 +19,11 @@ const PostIndex = ({ navigation, post }) => {
         {/* <CommentSection/> */}
         <Button 
           testID='comment-button'
-          title="Comments"
-          onPress={() => {navigation.navigate("CommentSection")}}
-        />
+          // title="Comments"
+          onPress={() => navigation.navigate("CommentSection", {comment: comment})}
+        >
+          Comments
+        </Button>
       </Card>
     </View>
   )

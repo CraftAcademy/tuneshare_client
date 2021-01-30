@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Button, TextInput } from 'react-native'
 
-const CommentSection = (props) => {
+const CommentSection = ({comments}) => {
   const [comment, setComment] = useState()
   return (
     <View 
