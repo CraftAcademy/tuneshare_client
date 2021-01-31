@@ -3,8 +3,13 @@ import { View, Text } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
+import { Octicons } from '@expo/vector-icons';
+import LikeService from "../modules/LikeService";
 
 const PostIndex = ({ post }) => {
+  let credentials = {
+    uid: 'test@test.com'
+  }
   return (
     <View style={styles.card_container}>
       <Card>
@@ -16,6 +21,15 @@ const PostIndex = ({ post }) => {
         </Card.Image>
         <Card.Divider />
         <Text style={styles.description}>{post.description}</Text>
+        <Octicons
+          name="flame"
+          size={24}
+          color="black"
+          testID={`likeButton-${post.id}`}
+          onPress={() => LikeService.create(post.id, credentials)}
+        >
+          <Text testID={`likeCount-${post.id}`}>{post.likes}</Text>
+        </Octicons>
       </Card>
     </View>
   )

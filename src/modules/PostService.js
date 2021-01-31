@@ -22,7 +22,6 @@ const PostService = {
       navigate('HomeScreen')
       return alert(`${response.data.message}`)
     } catch (error) {
-      debugger
       store.dispatch({
         type: 'SET_ERROR_MESSAGE',
         payload: error.response.data.message,

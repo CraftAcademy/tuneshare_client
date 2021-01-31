@@ -10,8 +10,8 @@ describe('User can', () => {
     }),
       cy.route({
         method: 'POST',
-        url: 'http://localhost:3000/api/posts/*/likes',
-        //response: { posts: posts },
+        url: 'http://localhost:3000/api/posts/1/likes',
+        response: { },
       })
     cy.visit('/')
   })
@@ -19,7 +19,7 @@ describe('User can', () => {
   describe('successfully', () => {
     it('like another post', () => {
       cy.get('[data-testid="likeButton-1"]').click()
-      cy.get('[data-testid="likecount-1"]').should('eq', '3')
+      cy.get('[data-testid="likeCount-1"]').should('contain', '3')
     })
   })
 })
