@@ -1,48 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import { View, Button, TextInput, FlatList } from 'react-native'
+import React, { useState } from 'react'
+import { View, Button, TextInput, FlatList, Text } from 'react-native'
 import { useRoute } from '@react-navigation/native'
-import { useSelector } from 'react-redux'
-import Comments from '../modules/CommentService'
 
-const SingleComment = ({ postComments }) => {
-  return (
-    <View>
-      <Text>{postComments.content}</Text>
-    </View>
-  )
-}
-
-const CommentIndex = () => {
-  const route = useRoute()
-  const postId = route.params.post.id
-  const { postComments } = useSelector(state => state)
-
-  useEffect(async () => {
-    let response
-    await Comments.index(postId)
-    return response
-  }, [])
-
-  return (
-    <View>
-      <FlatList
-        data={postComments}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => <SingleComment postComment={item} />}
-      />
-    </View>
-  )
-}
 
 const CommentSection = () => {
   const [newComment, setNewComment] = useState()
+  const route = useRoute()
+  const comments = route.params.post.comments
+
+  const SingleComment = ({ content }) => (
+    <View>
+      <Text>{content}</Text>
+    </View>
+  )
+  const renderComment = ({ item }) => <SingleComment content={item.content} />
 
   return (
     <View testID='comment-section' name='CommentSection'>
-      <CommentIndex />
+      <FlatList
+        data={comments}
+        keyExtractor={item => item.id.toString()}
+        renderItem={renderComment}
+      />
       <TextInput
         testID='comment-text'
-        placeholder='white a comment'
+        placeholder='Share your thoughts...'
         onChange={text => setNewComment(text)}
       />
       <Button testID='comment-submit' title='Comment' />

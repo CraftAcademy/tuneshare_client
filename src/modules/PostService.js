@@ -28,20 +28,6 @@ const PostService = {
       })
     }
   },
-  async show(post_id) {
-    // try {
-    //   let response = await axios.get(`${API_URL}/posts/${post_id}`)
-    //   store.dispatch({
-    //     type: "SET_POST_SHOW",
-    //     payload: response.data.post
-    //   })
-    // } catch (error) {
-    //   store.dispatch({
-    //     type: 'SET_ERROR_MESSAGE',
-    //     payload: error.response.data.message,
-    //   })
-    // }
-  }  
 }
 
 export default PostService

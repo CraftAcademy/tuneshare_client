@@ -1,36 +1,10 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import HomeScreen from './src/components/HomeScreen'
-import { useSelector } from 'react-redux'
-import styles from './src/styles/styles'
 import PostForm from './src/components/PostForm'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import CommentSection from './src/components/CommentSection'
+import HomeStack from './src/screens/HomeStack'
 
-const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
-
-const HomeStack = () => {
-  const { appTitle } = useSelector(state => state)
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name='HomeScreen'
-        component={HomeScreen}
-        options={() => ({
-          title: appTitle,
-          headerStyle: styles.mainHeader,
-          headerTitleStyle: styles.appTitle,
-        })}
-      />
-      <Stack.Screen
-        name="CommentSection"
-        component={CommentSection}
-      />
-    </Stack.Navigator>
-  )
-}
 
 const App = () => {
   return (

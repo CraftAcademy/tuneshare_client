@@ -8,20 +8,26 @@ import { useNavigation } from '@react-navigation/native'
 const PostIndex = ({ post }) => {
   const navigation = useNavigation()
   return (
-    <View style={styles.card_container} testID="post-index">
+    <View style={styles.card_container} testID='post-index'>
       <Card testID={`post-card-${post.id}`}>
-        <Card.Title testID={`post-title-${post.id}`} style={styles.track}>{post.track}</Card.Title>
-        <Card.Title testID={`post-artist-${post.id}`} style={styles.artists}>{post.artists}</Card.Title>
+        <Card.Title testID={`post-title-${post.id}`} style={styles.track}>
+          {post.track}
+        </Card.Title>
+        <Card.Title testID={`post-artist-${post.id}`} style={styles.artists}>
+          {post.artists}
+        </Card.Title>
         <Card.Divider />
         <Card.Image style={styles.image} source={{ uri: post.image }}>
           <TrackPlayer post={post} />
         </Card.Image>
         <Card.Divider />
-        <Text testID={`post-description-${post.id}`} style={styles.description}>{post.description}</Text>
-        <Button 
+        <Text testID={`post-description-${post.id}`} style={styles.description}>
+          {post.description}
+        </Text>
+        <Button
           testID='comment-button'
-          title="Comments"
-          onPress={() => navigation.navigate("CommentSection", {post: post})}
+          title='Comments'
+          onPress={() => navigation.navigate('CommentSection', { post: post })}
         />
       </Card>
     </View>

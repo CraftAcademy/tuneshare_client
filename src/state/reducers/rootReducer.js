@@ -13,7 +13,7 @@ const rootReducer = (state, action) => {
     case "DISPLAY_POST_COMMENTS":
       return {
         ...state,
-        postComments: action.payload,
+        comments: action.payload,
       }
     case 'SET_POST_SHOW': 
       return {
