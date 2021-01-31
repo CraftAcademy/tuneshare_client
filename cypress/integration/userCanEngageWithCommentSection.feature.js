@@ -16,13 +16,13 @@ describe('In comment section', () => {
     })
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/api/posts/**/comments',
-      response: { comments: comments },
+      url: 'http://localhost:3000/api/posts/1/comments',
+      response: { posts: posts, postComments: comments } 
     })
     cy.visit('/')
   })
 
-  it('user can see all comments', () => {
+  it.only('user can see all comments', () => {
     cy.get('[data-testid=post-card-1]').within(() => {
       cy.get('[data-testid=comment-button]').click()
     })
