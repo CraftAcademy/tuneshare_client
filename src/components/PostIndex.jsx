@@ -21,7 +21,7 @@ const PostIndex = ({ post }) => {
         <Button 
           testID='comment-button'
           title="Comments"
-          onPress={() => navigation.navigate("CommentSection", {post_id: post.id})}
+          onPress={() => navigation.navigate("CommentSection", {comment: 'First!'})}
         />
       </Card>
     </View>

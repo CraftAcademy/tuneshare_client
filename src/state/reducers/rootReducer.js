@@ -10,7 +10,11 @@ const rootReducer = (state, action) => {
         ...state,
         searchResult: action.payload.tracks,
       }
-    
+    case "DISPLAY_POST_COMMENTS":
+      return {
+        ...state,
+        postComments: action.payload,
+      }
     case 'SET_POST_SHOW': 
       return {
         ...state,

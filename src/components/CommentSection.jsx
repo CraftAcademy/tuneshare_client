@@ -1,15 +1,34 @@
 import React, { useState } from 'react'
-import { View, Button, TextInput, SectionList } from 'react-native'
+import { View, Button, TextInput, FlatList } from 'react-native'
 import { useRoute } from '@react-navigation/native'
+import {useSelector} from 'react-redux'
+import Comments from '../modules/CommentService'
 
-const CommentIndex = () => {
+const SingleComment = () => {
   const route = useRoute()
   let comment = route.params.comment
-
   return (
-    <SectionList 
-      renderItem={({item}) => <ListItem comment={item}/>}
+    <View>
+      <Text>{comment}</Text>
+    </View>
+  )
+}
+
+const CommentIndex = (props) => {
+  const { post_id } = props.route.params.post  
+  const { postComments } = useSelector(state => state)
+
+  useEffect(() => {
+    Comments.index(post_id)
+  }, [post_id])
+  return (
+    <View>
+    <FlatList
+    data={postComments}
+     keyExtractor={(item, index) => index.toString()}
+    renderItem={({item}) => (<SingleComment comment={item}/>)}
     />
+    </View>
   )
 }
 
@@ -21,6 +40,7 @@ const CommentSection = () => {
       testID="comment-section"
       name="CommentSection"
     >
+      <CommentIndex />
         <TextInput
           testID="comment-text"
           placeholder="white a comment"
@@ -29,7 +49,6 @@ const CommentSection = () => {
         <Button
           testID="comment-submit"
           title="Comment"
-          // onPress={}
         />
     </View>
   )
