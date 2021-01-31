@@ -3,8 +3,10 @@ import { View, Text, Button } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
+import { useNavigation } from '@react-navigation/native'
 
-const PostIndex = ({ navigation, post }) => {
+const PostIndex = ({ post }) => {
+  const navigation = useNavigation()
   return (
     <View style={styles.card_container} testID="post-index">
       <Card testID={`post-card-${post.id}`}>
@@ -20,7 +22,7 @@ const PostIndex = ({ navigation, post }) => {
         <Button 
           testID='comment-button'
           // title="Comments"
-          onPress={() => navigation.navigate("CommentSection", {comment: comment})}
+          onPress={() => navigation.navigate("CommentSection")}
         >
           Comments
         </Button>
