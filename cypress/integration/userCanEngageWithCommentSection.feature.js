@@ -1,6 +1,7 @@
 import { posts } from '../fixtures/staticPostIndexData'
+import { comments } from '../fixtures/staticCommentIndexData'
 
-describe('User can Comment on a post', () => {
+describe('In comment section', () => {
   beforeEach(() => {
     cy.server()
     cy.route({
@@ -13,10 +14,24 @@ describe('User can Comment on a post', () => {
       url: 'http://localhost:3000/auth/signin',
       response: 'fixture:user_can_comment_on_post.json',
     })
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3000/api/posts/**/comments',
+      response: { comments: comments },
+    })
     cy.visit('/')
   })
 
-  it('successfully', () => {
+  it('user can see all comments', () => {
+    cy.get('[data-testid=post-card-1]').within(() => {
+      cy.get('[data-testid=comment-button]').click()
+    })
+    cy.get('[data-testid=comment-section]').within(() => {
+      cy.get('[data-testid=comment-list]').should('contain', 'First!')
+    })
+  })
+
+  it('user can make a comment', () => {
     cy.get('[data-testid=post-card-1]').within(() => {
       cy.get('[data-testid=comment-button]').click()
     })
