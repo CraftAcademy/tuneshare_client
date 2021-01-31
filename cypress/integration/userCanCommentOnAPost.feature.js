@@ -19,14 +19,14 @@ describe('User can Comment on a post', () => {
   it('successfully', () => {
     cy.get('[data-testid=post-card-1]').within(() => {
       cy.get('[data-testid=comment-button]').click()
-      cy.get('[data-testid=comment-section]').within(() => {
-        cy.get('[data-testid=comment-text]').type('this is a comment')
-        cy.get('[data-testid=comment-submit]').click()
-        cy.get('[data-testid=comment-list]').should(
-          'contain',
-          'this is a comment'
-        )
-      })
+    })
+    cy.get('[data-testid=comment-section]').within(() => {
+      cy.get('[data-testid=comment-text]').type('this is a comment')
+      cy.get('[data-testid=comment-submit]').click()
+      cy.get('[data-testid=comment-list]').should(
+        'contain',
+        'this is a comment'
+      )
     })
   })
 })

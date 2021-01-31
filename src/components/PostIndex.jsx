@@ -18,14 +18,11 @@ const PostIndex = ({ post }) => {
         </Card.Image>
         <Card.Divider />
         <Text testID={`post-description-${post.id}`} style={styles.description}>{post.description}</Text>
-        {/* <CommentSection/> */}
         <Button 
           testID='comment-button'
-          // title="Comments"
+          title="Comments"
           onPress={() => navigation.navigate("CommentSection")}
-        >
-          Comments
-        </Button>
+        />
       </Card>
     </View>
   )

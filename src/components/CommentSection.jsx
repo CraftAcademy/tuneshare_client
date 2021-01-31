@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Button, TextInput } from 'react-native'
+import { View, Button, TextInput, Text } from 'react-native'
 
 const CommentSection = () => {
   const [comment, setComment] = useState()
@@ -8,7 +8,7 @@ const CommentSection = () => {
       testID="comment-section"
       name="CommentSection"
     >
-      <View>
+        <Text>This is a comment</Text>
         <TextInput
           testID="comment-text"
           placeholder="white a comment"
@@ -19,7 +19,6 @@ const CommentSection = () => {
           title="Comment"
           // onPress={}
         />
-      </View>
     </View>
   )
 }
