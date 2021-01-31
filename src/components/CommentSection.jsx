@@ -1,18 +1,30 @@
 import React, { useState } from 'react'
-import { View, Button, TextInput, Text } from 'react-native'
+import { View, Button, TextInput, SectionList } from 'react-native'
+import { useRoute } from '@react-navigation/native'
+
+const CommentIndex = () => {
+  const route = useRoute()
+  let comment = route.params.comment
+
+  return (
+    <SectionList 
+      renderItem={({item}) => <ListItem comment={item}/>}
+    />
+  )
+}
 
 const CommentSection = () => {
-  const [comment, setComment] = useState()
+  const [newComment, setNewComment] = useState()
+
   return (
     <View 
       testID="comment-section"
       name="CommentSection"
     >
-        <Text>This is a comment</Text>
         <TextInput
           testID="comment-text"
           placeholder="white a comment"
-          onChange={(text) => setComment(text)}
+          onChange={(text) => setNewComment(text)}
         />
         <Button
           testID="comment-submit"

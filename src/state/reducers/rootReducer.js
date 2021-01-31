@@ -10,7 +10,12 @@ const rootReducer = (state, action) => {
         ...state,
         searchResult: action.payload.tracks,
       }
-
+    
+    case 'SET_POST_SHOW': 
+      return {
+        ...state,
+        singlePost: action.payload,
+      }
     case 'SET_TRACK_DETAILS':
       return {
         ...state,
