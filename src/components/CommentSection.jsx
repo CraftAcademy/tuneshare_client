@@ -4,9 +4,7 @@ import { useRoute } from '@react-navigation/native'
 import {useSelector} from 'react-redux'
 import Comments from '../modules/CommentService'
 
-const SingleComment = () => {
-  const route = useRoute()
-  let comment = route.params.comment
+const SingleComment = ({comment}) => {
   return (
     <View>
       <Text>{comment}</Text>
