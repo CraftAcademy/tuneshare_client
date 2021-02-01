@@ -1,19 +1,21 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
+import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
 import { Octicons } from '@expo/vector-icons';
 import PostService from '../modules/PostService'
 import LikeService from "../modules/LikeService";
 
 const PostIndex = ({ post }) => {
+  const navigation = useNavigation()
   const { credentials } = useSelector(state => state)
-
+  
   return (
-    <View style={styles.card_container}>
-      <Card testID='post-index'>
+    <View style={styles.card_container} testID='post-index'>
+      <Card testID={`post-card-${post.id}`}>
         <Card.Title testID={`post-title-${post.id}`} style={styles.track}>
           {post.track}
         </Card.Title>
@@ -28,6 +30,14 @@ const PostIndex = ({ post }) => {
         <Text testID={`post-description-${post.id}`} style={styles.description}>
           {post.description}
         </Text>
+        <Card.Divider />
+        <TouchableOpacity
+          style={styles.commentButton}
+          testID='comment-button'
+          onPress={() => navigation.navigate('CommentSection', { post: post })}
+        >
+          Comment
+        </TouchableOpacity>
         <Octicons
           name="flame"
           size={24}

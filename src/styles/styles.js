@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Arial',
     fontSize: 15,
     color: 'black',
+    paddingBottom: 10
   },
   playButton: {
     color: 'grey',
@@ -77,6 +78,14 @@ const styles = StyleSheet.create({
     color: '#1DB954',
     padding: 12,
     marginRight: 6,
+  },
+  commentButton: {
+    padding: 12,
+    marginRight: 6,
+    fontFamily: 'Helvetica',
+    color: 'dodgerblue',
+    alignItems: 'left',
+    fontSize: 15,
   },
   loginHitSlop: {
     bottom: 20,

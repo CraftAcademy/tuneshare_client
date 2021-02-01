@@ -10,6 +10,11 @@ const rootReducer = (state, action) => {
         ...state,
         searchResult: action.payload.tracks,
       }
+    case "DISPLAY_POST_COMMENTS":
+      return {
+        ...state,
+        comments: action.payload,
+      }
     case 'SET_CURRENT_USER':
       return {
         ...state,
