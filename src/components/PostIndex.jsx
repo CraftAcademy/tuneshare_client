@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { View, Text } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
@@ -8,9 +9,7 @@ import PostService from '../modules/PostService'
 import LikeService from "../modules/LikeService";
 
 const PostIndex = ({ post }) => {
-  let credentials = {
-    uid: 'test@test.com'
-  }
+  const { credentials } = useSelector(state => state)
 
   return (
     <View style={styles.card_container}>
