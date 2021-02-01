@@ -72,7 +72,53 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     marginLeft: 20,
     marginRight: 20,
-  }
+  },
+  loginButton: {
+    color: '#1DB954',
+    padding: 12,
+    marginRight: 6,
+  },
+  loginHitSlop: {
+    bottom: 20,
+    left: 20,
+    right: 20,
+    top: 50,
+  },
+  loginSubmit: {
+    width: '50%',
+    height: 60,
+    alignSelf: 'center',
+    marginTop: 20,
+  },
+  linearGradient: {
+    paddingLeft: 2,
+    borderRadius: 16,
+    borderColor: '#013220',
+  },
+  buttonContent: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    fontFamily: 'Helvetica',
+    paddingTop: 20,
+    paddingBottom: 40,
+    paddingLeft: 20,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    textShadowColor: '#013220',
+    textShadowRadius: 4,
+  },
+  loginInput: {
+    margin: 15,
+    height: 60,
+    borderColor: '#778899',
+    borderWidth: 1,
+    borderRadius: 4,
+    backgroundColor: '#d3d3d3',
+    color: 'black',
+    fontWeight: 'bold',
+    marginTop: 40,
+  },
 })
 
 export default styles

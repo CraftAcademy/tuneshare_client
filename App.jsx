@@ -6,6 +6,9 @@ import { useSelector } from 'react-redux'
 import styles from './src/styles/styles'
 import PostForm from './src/components/PostForm'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Fontisto } from '@expo/vector-icons'
+import LoginScreen from './src/components/LoginScreen'
+import FlashMessage from 'react-native-flash-message'
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -17,7 +20,16 @@ const HomeStack = () => {
       <Stack.Screen
         name='HomeScreen'
         component={HomeScreen}
-        options={() => ({
+        options={props => ({
+          headerRight: () => (
+            <Fontisto
+              name='spotify'
+              testID='login-icon'
+              onPress={() => props.navigation.navigate('PostForm')}
+              style={styles.loginButton}
+              size={44}
+            />
+          ),
           title: appTitle,
           headerStyle: styles.mainHeader,
           headerTitleStyle: styles.appTitle,
@@ -28,16 +40,35 @@ const HomeStack = () => {
 }
 
 const App = () => {
-  return (
-    <>
+  const { authenticated } = useSelector(state => state)
+  if (authenticated) {
+    return (
       <NavigationContainer style={{ height: 10 }}>
         <Tab.Navigator>
           <Tab.Screen name='Feed' component={HomeStack} />
           <Tab.Screen name='Post' component={PostForm} />
         </Tab.Navigator>
       </NavigationContainer>
-    </>
-  )
+    )
+  } else {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name='Login'
+            component={LoginScreen}
+            testID='login-screen'
+            options={{
+              title: 'Log In To TuneShare',
+              headerStyle: styles.mainHeader,
+              headerTitleStyle: styles.appTitle,
+            }}
+          />
+        </Stack.Navigator>
+        <FlashMessage testID='flash-message' position='center' />
+      </NavigationContainer>
+    )
+  }
 }
 
 export default App
