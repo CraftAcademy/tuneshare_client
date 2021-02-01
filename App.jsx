@@ -18,16 +18,6 @@ const HomeStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name='Login'
-        component={LoginScreen}
-        testID='login-screen'
-        options={{
-          title: 'Log In To TuneShare',
-          headerStyle: styles.mainHeader,
-          headerTitleStyle: styles.appTitle,
-        }}
-      />
-      <Stack.Screen
         name='HomeScreen'
         component={HomeScreen}
         options={props => ({
@@ -35,7 +25,7 @@ const HomeStack = () => {
             <Fontisto
               name='spotify'
               testID='login-icon'
-              onPress={() => props.navigation.navigate('Login')}
+              onPress={() => props.navigation.navigate('PostForm')}
               style={styles.loginButton}
               size={44}
             />
@@ -45,23 +35,40 @@ const HomeStack = () => {
           headerTitleStyle: styles.appTitle,
         })}
       />
+      <FlashMessage testID='flash-message' position='center' />
     </Stack.Navigator>
   )
 }
 
 const App = () => {
-  return (
-    <>
+  const { authenticated } = useSelector(state => state)
+  if (authenticated) {
+    return (
       <NavigationContainer style={{ height: 10 }}>
         <Tab.Navigator>
           <Tab.Screen name='Feed' component={HomeStack} />
           <Tab.Screen name='Post' component={PostForm} />
-          {/* <Tab.Screen name='Login' component={LoginScreen} /> */}
         </Tab.Navigator>
-        <FlashMessage testID='flash-message' position='center' />
       </NavigationContainer>
-    </>
-  )
+    )
+  } else {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name='Login'
+            component={LoginScreen}
+            testID='login-screen'
+            options={{
+              title: 'Log In To TuneShare',
+              headerStyle: styles.mainHeader,
+              headerTitleStyle: styles.appTitle,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    )
+  }
 }
 
 export default App
