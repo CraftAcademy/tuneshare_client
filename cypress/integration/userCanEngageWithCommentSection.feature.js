@@ -32,7 +32,21 @@ describe('In comment section', () => {
       cy.get('[data-testid=comment-button]').click()
     })
     cy.get('[data-testid=comment-section]').within(() => {
-      cy.get('[data-testid=single-comment]').should('contain', 'First!')
+      cy.get('[data-testid=comment-text]').should('contain', 'First!')
+    })
+  })
+
+  it('user can make a comment', () => {
+    cy.get('[data-testid=post-card-1]').within(() => {
+      cy.get('[data-testid=comment-button]').click()
+    })
+    cy.get('[data-testid=comment-section]').within(() => {
+      cy.get('[data-testid=comment-text]').type('this is a comment')
+      cy.get('[data-testid=comment-submit]').click()
+      cy.get('[data-testid=comment-list]').should(
+        'contain',
+        'this is a comment'
+      )
     })
   })
 })
