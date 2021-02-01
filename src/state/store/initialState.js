@@ -5,7 +5,7 @@ const initialState = {
   singlePost: {},
   searchResult: [],
   trackDetails: null,
-  postComments: [],
+  comments: [],
 }
 
 export default initialState
