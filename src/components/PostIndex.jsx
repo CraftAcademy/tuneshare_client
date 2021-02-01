@@ -1,10 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { View, Text } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
+import { Octicons } from '@expo/vector-icons';
+import PostService from '../modules/PostService'
+import LikeService from "../modules/LikeService";
 
 const PostIndex = ({ post }) => {
+  const { credentials } = useSelector(state => state)
+
   return (
     <View style={styles.card_container}>
       <Card testID='post-index'>
@@ -22,6 +28,15 @@ const PostIndex = ({ post }) => {
         <Text testID={`post-description-${post.id}`} style={styles.description}>
           {post.description}
         </Text>
+        <Octicons
+          name="flame"
+          size={24}
+          color="black"
+          testID={`likeButton-${post.id}`}
+          onPress={() => { LikeService.create(post.id, credentials); PostService.index() }}
+        >
+          <Text testID={`likeCount-${post.id}`}>{post.likes}</Text>
+        </Octicons>
       </Card>
     </View>
   )
