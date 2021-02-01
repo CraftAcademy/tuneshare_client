@@ -39,8 +39,7 @@ describe('User login with devise', () => {
       })
     })
   })
-// Sad path isn't really testable until we find a way to get flash message data //  
-// Or use a temporary message display to test routes //
+  
   describe('is unsuccessful ', () => {
     beforeEach(() => {
       cy.route({
