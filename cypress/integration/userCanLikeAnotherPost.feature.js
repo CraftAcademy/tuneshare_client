@@ -43,16 +43,4 @@ describe('User can', () => {
       cy.get('[data-testid="likeCount-1"]').should('contain', '3')
     })
   })
-  describe('unsuccessfully', () => {
-    it('like a post for the second time', () => {
-      cy.route({
-        method: 'GET',
-        url: 'http://localhost:3000/api/posts',
-        response: { posts: updatedPosts },
-      })
-      cy.get('[data-testid="likeButton-1"]').click()
-      cy.get('[data-testid="likeButton-1"]').click()
-      cy.get('[data-testid="likeCount-1"]').should('contain', '3')
-    })
-  })
 })
