@@ -1,9 +1,0 @@
-{
-  "data": {
-    "id": 3,
-    "provider": "email",
-    "uid": "user@spotify.com",
-    "email": "user@spotify.com",
-    "allow_password_change": false
-  }
-}
