@@ -15,10 +15,10 @@ const rootReducer = (state, action) => {
         ...state,
         comments: action.payload,
       }
-    case 'SET_POST_SHOW': 
+    case 'SET_CURRENT_USER':
       return {
         ...state,
-        singlePost: action.payload,
+        ...action.payload,
       }
     case 'SET_TRACK_DETAILS':
       return {

@@ -1,5 +1,6 @@
 const initialState = {
   appTitle: 'TuneShare',
+  authenticated: false,
   posts: [],
   singlePost: {},
   searchResult: [],
