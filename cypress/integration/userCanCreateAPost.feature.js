@@ -21,7 +21,7 @@ describe('User can create a post', () => {
     })
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/api/auth/validate_token**',
+      url: 'http://localhost:3000/auth/validate_token**',
       response: 'fx:user_login_with_devise_credentials.json',
     })
     cy.visit('/')

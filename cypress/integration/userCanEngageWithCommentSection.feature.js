@@ -1,5 +1,4 @@
 import { posts } from '../fixtures/staticPostIndexData'
-import { comments } from '../fixtures/staticCommentIndexData'
 
 describe('In comment section', () => {
   beforeEach(() => {
@@ -11,17 +10,12 @@ describe('In comment section', () => {
     })
     cy.route({
       method: 'POST',
-      url: 'http://localhost:3000/auth/signin',
+      url: 'http://localhost:3000/auth/sign_in',
       response: 'fx:user_login_with_devise_credentials.json',
     })
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/api/posts/1/comments',
-      response: { posts: posts, comments: comments } 
-    })
-    cy.route({
-      method: 'GET',
-      url: 'http://localhost:3000/api/auth/validate_token**',
+      url: 'http://localhost:3000/auth/validate_token**',
       response: 'fx:user_login_with_devise_credentials.json',
     })
     cy.visit('/')
@@ -38,21 +32,7 @@ describe('In comment section', () => {
       cy.get('[data-testid=comment-button]').click()
     })
     cy.get('[data-testid=comment-section]').within(() => {
-      cy.get('[data-testid=comment-list]').should('contain', 'First!')
-    })
-  })
-
-  it('user can make a comment', () => {
-    cy.get('[data-testid=post-card-1]').within(() => {
-      cy.get('[data-testid=comment-button]').click()
-    })
-    cy.get('[data-testid=comment-section]').within(() => {
-      cy.get('[data-testid=comment-text]').type('this is a comment')
-      cy.get('[data-testid=comment-submit]').click()
-      cy.get('[data-testid=comment-list]').should(
-        'contain',
-        'this is a comment'
-      )
+      cy.get('[data-testid=single-comment]').should('contain', 'First!')
     })
   })
 })
