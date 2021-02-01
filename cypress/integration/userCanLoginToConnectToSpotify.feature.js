@@ -54,15 +54,12 @@ describe('User login with devise', () => {
       cy.visit('/')
     })
     it('with invalid spotify credentials', () => {
-      cy.get('[data-testid=login-icon]').click()
       cy.get('[data-testid=login-screen]').within(() => {
         cy.get('[data-testid=login-email]').type('sporp@sporp.com')
+        cy.get('[data-testid=login-password]').type('password')
         cy.get('[data-testid=login-submit]').click()
-        cy.get('[data-testid=flash-message]').should(
-          'contain',
-          'Invalid login credentials. Please try again.'
-        )
       })
+      cy.get('[data-testid=login-screen]').should('exist')
     })
   })
 })

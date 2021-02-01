@@ -43,7 +43,8 @@ const LoginScreen = props => {
         onChangeText={text => setEmail(text)}
       />
       <TextInput
-        testID='login-email'
+        testID='login-password'
+        secureTextEntry={true}
         style={styles.loginInput}
         placeholder='Enter the password you use for your spotify account'
         onChangeText={text => setPassword(text)}
