@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
@@ -24,11 +24,14 @@ const PostIndex = ({ post }) => {
         <Text testID={`post-description-${post.id}`} style={styles.description}>
           {post.description}
         </Text>
-        <Button
+        <Card.Divider />
+        <TouchableOpacity
+          style={styles.commentButton}
           testID='comment-button'
-          title='Comments'
           onPress={() => navigation.navigate('CommentSection', { post: post })}
-        />
+        >
+          Comment
+        </TouchableOpacity>
       </Card>
     </View>
   )

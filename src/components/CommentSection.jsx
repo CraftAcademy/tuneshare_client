@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Button, FlatList, Text } from 'react-native'
 import { useRoute } from '@react-navigation/native'
-
+import styles from '../styles/styles'
 
 const CommentSection = () => {
   const route = useRoute()
