@@ -14,7 +14,16 @@ describe('User can search a song to post by keyword', () => {
       url: 'http://localhost:3000/api/tracks?q=**',
       response: { tracks: tracks },
     })
+    cy.route({
+      method: 'POST',
+      url: 'http://localhost:3000/auth/sign_in',
+      response: 'fx:user_login_with_devise_credentials.json',
+    })
     cy.visit('/')
+    cy.get('[data-testid=login-screen]').within(() => {
+      cy.get('[data-testid=login-email]').type('spotifyuser@spotify.com')
+      cy.get('[data-testid=login-submit]').click()
+    })
     cy.contains('Post').click()
   })
 
