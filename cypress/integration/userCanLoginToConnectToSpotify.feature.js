@@ -24,11 +24,6 @@ describe('User login with devise', () => {
         url: 'http://localhost:3000/auth/sign_in',
         response: 'fx:user_login_with_devise_credentials.json',
       })
-      cy.route({
-        method: 'GET',
-        url: 'http://localhost:3000/auth/validate_token**',
-        response: 'fx:user_login_with_devise_credentials.json',
-      })
       cy.visit('/')
     })
     it('when using spotify credentials', () => {
@@ -39,7 +34,7 @@ describe('User login with devise', () => {
       })
     })
   })
-  
+
   describe('is unsuccessful ', () => {
     beforeEach(() => {
       cy.route({
@@ -47,7 +42,7 @@ describe('User login with devise', () => {
         url: 'http://localhost:3000/auth/sign_in',
         status: '401',
         response: {
-          errors: ["Invalid login credentials, please try again"]
+          errors: ['Invalid login credentials, please try again'],
         },
       })
       cy.visit('/')

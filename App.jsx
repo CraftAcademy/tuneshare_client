@@ -14,17 +14,17 @@ const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
 const HomeStack = () => {
-  const { appTitle } = useSelector((state) => state)
+  const { appTitle } = useSelector(state => state)
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="HomeScreen"
+        name='HomeScreen'
         component={HomeScreen}
-        options={(props) => ({
+        options={props => ({
           headerRight: () => (
             <Fontisto
-              name="spotify"
-              testID="login-icon"
+              name='spotify'
+              testID='login-icon'
               onPress={() => props.navigation.navigate('PostForm')}
               style={styles.loginButton}
               size={44}
@@ -40,13 +40,13 @@ const HomeStack = () => {
 }
 
 const App = () => {
-  const { authenticated } = useSelector((state) => state)
+  const { authenticated } = useSelector(state => state)
   if (authenticated) {
     return (
       <NavigationContainer style={{ height: 10 }}>
         <Tab.Navigator>
-          <Tab.Screen name="Feed" component={HomeStack} />
-          <Tab.Screen name="Post" component={PostForm} />
+          <Tab.Screen name='Feed' component={HomeStack} />
+          <Tab.Screen name='Post' component={PostForm} />
         </Tab.Navigator>
       </NavigationContainer>
     )
@@ -55,9 +55,9 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            name="Login"
+            name='Login'
             component={LoginScreen}
-            testID="login-screen"
+            testID='login-screen'
             options={{
               title: 'Log In To TuneShare',
               headerStyle: styles.mainHeader,
@@ -65,7 +65,7 @@ const App = () => {
             }}
           />
         </Stack.Navigator>
-        <FlashMessage testID="flash-message" position="center" />
+        <FlashMessage testID='flash-message' position='center' />
       </NavigationContainer>
     )
   }

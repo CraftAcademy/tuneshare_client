@@ -7,7 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { Fontisto } from '@expo/vector-icons'
 import { useDispatch } from 'react-redux'
 
-const LoginScreen = (props) => {
+const LoginScreen = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loginMessage, setLoginMessage] = useState()
@@ -19,7 +19,7 @@ const LoginScreen = (props) => {
   const authWithDevise = async () => {
     await deviseAuth
       .signIn(email, password)
-      .then((resp) => {
+      .then(resp => {
         props.navigation.navigate('HomeScreen')
         dispatch({
           type: 'SET_CURRENT_USER',
@@ -28,29 +28,29 @@ const LoginScreen = (props) => {
           },
         })
       })
-      .catch((e) => {
+      .catch(e => {
         setLoginMessage(e.response.data.errors[0])
       })
   }
 
   return (
-    <View testID="login-screen">
+    <View testID='login-screen'>
       <TextInput
-        testID="login-email"
+        testID='login-email'
         style={styles.loginInput}
-        placeholder="Enter the email you use for your spotify account"
-        onChangeText={(text) => setEmail(text)}
+        placeholder='Enter the email you use for your spotify account'
+        onChangeText={text => setEmail(text)}
       />
       <TextInput
-        testID="login-password"
+        testID='login-password'
         secureTextEntry={true}
         style={styles.loginInput}
-        placeholder="Enter the password you use for your spotify account"
-        onChangeText={(text) => setPassword(text)}
+        placeholder='Enter the password you use for your spotify account'
+        onChangeText={text => setPassword(text)}
       />
       <TouchableOpacity
-        raised="true"
-        testID="login-submit"
+        raised='true'
+        testID='login-submit'
         hitSlop={styles.loginHitSlop}
         style={styles.loginSubmit}
         onPress={() => {
@@ -80,9 +80,9 @@ const LoginScreen = (props) => {
           <Text style={styles.buttonContent}>
             Sign In With Spotify
             <Fontisto
-              name="spotify"
+              name='spotify'
               style={{ paddingLeft: 16 }}
-              color="#ffffff"
+              color='#ffffff'
               size={24}
             />
           </Text>
