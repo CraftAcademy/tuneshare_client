@@ -7,7 +7,6 @@ import styles from '../styles/styles'
 
 const HomeScreen = () => {
   const { posts } = useSelector(state => state)
-
   useEffect(() => {
     PostService.index()
   }, [])

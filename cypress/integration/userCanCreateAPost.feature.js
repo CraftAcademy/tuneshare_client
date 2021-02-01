@@ -5,16 +5,6 @@ describe('User can create a post', () => {
   beforeEach(() => {
     cy.server()
     cy.route({
-      method: 'GET',
-      url: 'http://localhost:3000/api/posts',
-      response: { posts: posts },
-    })
-    cy.route({
-      method: 'GET',
-      url: 'http://localhost:3000/api/tracks?q=**',
-      response: { tracks: tracks },
-    })
-    cy.route({
       method: 'POST',
       url: 'http://localhost:3000/auth/sign_in',
       response: 'fx:user_login_with_devise_credentials.json',
@@ -23,6 +13,16 @@ describe('User can create a post', () => {
       method: 'GET',
       url: 'http://localhost:3000/auth/validate_token**',
       response: 'fx:user_login_with_devise_credentials.json',
+    })
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3000/api/posts',
+      response: { posts: posts },
+    })
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3000/api/tracks?q=**',
+      response: { tracks: tracks },
     })
     cy.visit('/')
     cy.get('[data-testid=login-screen]').within(() => {

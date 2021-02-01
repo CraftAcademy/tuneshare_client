@@ -28,8 +28,8 @@ const LoginScreen = props => {
           },
         })
       })
-      .catch(e => {
-        setLoginMessage(e.response.data.errors[0])
+      .catch(error => {
+        setLoginMessage(error.response.data.errors[0])
       })
   }
 

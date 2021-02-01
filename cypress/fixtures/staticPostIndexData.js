@@ -7,6 +7,7 @@ const posts = [
     preview:
       'https://p.scdn.co/mp3-preview/bbafd15ff484394a0ca106d5fef0a81eeea4ef5b?cid=9165f2ed52ac4632b2c23038c2fbe1d9',
     description: 'This is the best christmas song ever! All time favorite!',
+    likes: 2,
     comments: [
       {
         id: 1,
@@ -34,6 +35,7 @@ const posts = [
       'https://p.scdn.co/mp3-preview/ad0a6b7428ef900b169449b24c335d885dc029d0?cid=9165f2ed52ac4632b2c23038c2fbe1d9',
     description:
       "Please don't say you don't know this song! Very classic christmas song.",
+    likes: 0
   },
   {
     track: "It's Beginning to Look a Lot like Christmas",
@@ -43,7 +45,8 @@ const posts = [
     preview:
       'https://p.scdn.co/mp3-preview/798a8bc5a7a95ccad75648a63bc50aa755dc2289?cid=9165f2ed52ac4632b2c23038c2fbe1d9',
     description: 'Everyone can agree on this makes christmas perfect!',
-  },
+    likes: 3
+  }
 ]
 
 export default { posts }

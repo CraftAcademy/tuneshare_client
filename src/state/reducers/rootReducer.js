@@ -20,6 +20,11 @@ const rootReducer = (state, action) => {
         ...state,
         ...action.payload,
       }
+    case 'SET_CREDENTIALS':
+      return {
+        ...state,
+        credentials: action.payload,
+      }
     case 'SET_TRACK_DETAILS':
       return {
         ...state,
