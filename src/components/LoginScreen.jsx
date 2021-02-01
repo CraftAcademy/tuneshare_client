@@ -29,7 +29,6 @@ const LoginScreen = props => {
         })
       })
       .catch(error => {
-        debugger
         setLoginMessage(error.response.data.errors[0])
       })
   }
