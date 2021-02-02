@@ -25,7 +25,6 @@ const CommentSection = () => {
         data={comments}
         keyExtractor={item => item.id.toString()}
         renderItem={renderComment}
-        extraData={newComment}
       />
       <TextInput
         testID='comment-input'
