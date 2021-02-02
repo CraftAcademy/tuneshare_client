@@ -100,6 +100,10 @@ class Auth {
           type: 'SET_CREDENTIALS',
           payload: response.headers,
         })
+        store.dispatch({
+          type: 'SET_USER_ID',
+          payload: response.data.data.id,
+        })
         this.setSession(response.headers)
         resolve(response.data)
       } catch (err) {

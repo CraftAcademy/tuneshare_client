@@ -1,5 +1,5 @@
 const user = {
-  id: 1,
+  id: 3,
   email: 'spotifyuser@spotify.com',
   posts: [
     {
