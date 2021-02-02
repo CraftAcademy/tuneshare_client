@@ -14,10 +14,9 @@ const CommentSection = () => {
     Comments.index(post.id)
   }, [])
 
-
   const SingleComment = ({ content }) => <Text>{content}</Text>
   const renderComment = ({ item }) => (
-    <SingleComment testID={`comment-text-${item.id}`} content={item.content} />
+    <SingleComment content={item.content} />
   )
 
   return (

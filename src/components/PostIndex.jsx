@@ -33,7 +33,6 @@ const PostIndex = ({ post }) => {
         <Card.Divider />
         <TouchableOpacity
           style={styles.commentButton}
-          title='Comment'
           testID='comment-button'
           onPress={() => navigation.navigate('CommentSection', { post: post })}
         >
