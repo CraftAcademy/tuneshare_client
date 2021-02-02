@@ -36,7 +36,7 @@ const PostIndex = ({ post }) => {
           testID='comment-button'
           onPress={() => navigation.navigate('CommentSection', { post: post })}
         >
-          Comment
+          <Text>Comment</Text>
         </TouchableOpacity>
         <Octicons
           name="flame"
