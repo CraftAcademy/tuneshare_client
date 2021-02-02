@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { View, Button, FlatList, Text, TextInput } from 'react-native'
 import { useRoute } from '@react-navigation/native'
