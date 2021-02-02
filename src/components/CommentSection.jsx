@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, createRef } from 'react'
 import { useSelector } from 'react-redux'
 import { View, Button, FlatList, Text, TextInput } from 'react-native'
 import { useRoute } from '@react-navigation/native'
@@ -8,11 +8,12 @@ const CommentSection = () => {
   const route = useRoute()
   const post = route.params.post
   const { comments, credentials } = useSelector(state => state)
-  const [newComment, setNewComment] = useState()
+  const [newComment, setNewComment] = useState('')
 
   useEffect(() => {
     Comments.index(post.id)
   }, [])
+
 
   const SingleComment = ({ content }) => <Text>{content}</Text>
   const renderComment = ({ item }) => (
@@ -31,14 +32,14 @@ const CommentSection = () => {
         testID='comment-input'
         placeholder='Share your thoughts...'
         onChangeText={text => setNewComment(text)}
+        clearButtonMode='always'
       />
       <Button
         testID='comment-submit'
         title='Comment'
         onPress={() => {
-          Comments.create(post.id, credentials, newComment)
-          Comments.index(post.id)
-          setNewComment('')
+          Comments.create(post.id, credentials, newComment);
+          Comments.index(post.id);
         }}
       />
     </View>
