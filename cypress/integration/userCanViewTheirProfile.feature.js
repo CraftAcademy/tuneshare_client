@@ -29,7 +29,6 @@ describe('User can view their profile', () => {
       cy.get('[data-testid=login-email]').type('spotifyuser@spotify.com')
       cy.get('[data-testid=login-password]').type('password')
       cy.get('[data-testid=login-submit]').click()
-      cy.get('[data-testid=login-screen]').should('not.be.visible')
     })
     cy.contains('Profile').click()
   })
