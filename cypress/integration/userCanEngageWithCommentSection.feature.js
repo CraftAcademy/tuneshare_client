@@ -36,7 +36,6 @@ describe('In comment section', () => {
         ],
       },
     })
-    
     cy.visit('/')
     cy.get('[data-testid=login-screen]').within(() => {
       cy.get('[data-testid=login-email]').type('spotifyuser@spotify.com')

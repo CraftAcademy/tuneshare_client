@@ -3,16 +3,16 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
-import { Octicons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons'
 import PostService from '../modules/PostService'
-import LikeService from "../modules/LikeService";
+import LikeService from '../modules/LikeService'
 
-const PostIndex = ({ post }) => {
+const PostIndex = ({post}) => {
   const navigation = useNavigation()
   const { credentials } = useSelector(state => state)
-  
+
   return (
     <View style={styles.card_container} testID='post-index'>
       <Card testID={`post-card-${post.id}`}>
@@ -39,11 +39,14 @@ const PostIndex = ({ post }) => {
           <Text>Comment</Text>
         </TouchableOpacity>
         <Octicons
-          name="flame"
+          name='flame'
           size={24}
-          color="black"
+          color='black'
           testID={`likeButton-${post.id}`}
-          onPress={() => { LikeService.create(post.id, credentials); PostService.index() }}
+          onPress={() => {
+            LikeService.create(post.id, credentials)
+            PostService.index()
+          }}
         >
           <Text testID={`likeCount-${post.id}`}>{post.likes}</Text>
         </Octicons>

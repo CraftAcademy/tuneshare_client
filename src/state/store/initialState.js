@@ -6,6 +6,10 @@ const initialState = {
   searchResult: [],
   trackDetails: null,
   comments: [],
+  userId: null,
+  userProfile: {},
+  userEmail: null,
+  userPosts: []
 }
 
 export default initialState
