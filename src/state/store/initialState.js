@@ -8,6 +8,8 @@ const initialState = {
   comments: [],
   userId: null,
   userProfile: {},
+  userEmail: null,
+  userPosts: []
 }
 
 export default initialState
