@@ -8,17 +8,21 @@ const PostService = {
     let response = await axios.get(`${API_URL}/posts`)
     store.dispatch({ type: 'SET_POSTS_INDEX', payload: response.data })
   },
-  async create(trackDetails, description, navigate) {
+  async create(trackDetails, description, navigate, credentials) {
     try {
-      let response = await axios.post(`${API_URL}/posts`, {
-        post: {
-          track: trackDetails.track,
-          artists: trackDetails.artists,
-          image: trackDetails.image,
-          preview: trackDetails.preview,
-          description: description,
+      let response = await axios.post(
+        `${API_URL}/posts`,
+        {
+          post: {
+            track: trackDetails.track,
+            artists: trackDetails.artists,
+            image: trackDetails.image,
+            preview: trackDetails.preview,
+            description: description,
+          },
         },
-      })
+        { headers: credentials }
+      )
       navigate('HomeScreen')
       return alert(`${response.data.message}`)
     } catch (error) {
