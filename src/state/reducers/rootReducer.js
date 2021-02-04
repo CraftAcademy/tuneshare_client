@@ -39,7 +39,8 @@ const rootReducer = (state, action) => {
     case 'DISPLAY_USER_PROFILE':
       return {
         ...state,
-        userProfile: action.payload,
+        userEmail: action.payload.email,
+        userPosts: action.payload.posts
       }
     case 'SET_USER_ID':
       return {

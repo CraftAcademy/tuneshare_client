@@ -41,5 +41,10 @@ describe('User can view their profile', () => {
         'spotifyuser@spotify.com'
       )
     })
+    it('see their posts', () => {
+      cy.get('[data-testid=user-post-1]').should('contain', 'Rosa helikopter')
+      cy.get('[data-testid=user-post-2]').should('contain', 'Papaya Whip')
+
+    });
   })
 })

@@ -1,34 +1,32 @@
 import React, {  useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Text, View, FlatList, Dimensions} from 'react-native'
-import { ListItem } from 'react-native-elements'
+import { Text, View, Dimensions, FlatList} from 'react-native'
 import User from '../modules/UserService'
-import UserPostIndex from './UserPostIndex'
+import { Avatar, ListItem } from 'react-native-elements'
 
 const UserProfile = () => {
-  const { userProfile, userId, credentials } = useSelector(state => state)
+  const { userEmail, userPosts, userId, credentials } = useSelector(state => state)
 
   useEffect(() => {
     User.show(userId, credentials)
   }, [])
 
-  const screenWidth = Dimensions.get("window").width
+  const screenWidth = Dimensions.get('window').width
   const numColumns = 3
   const tileSize = screenWidth / numColumns
 
   return (
-    <View>
-      <Text testID='user-email'>{userProfile.email}</Text>
-      <FlatList
-        data={userProfile.posts}
-        keyExtractor={item => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={{ flex: 1, flexDirection: 'column', height: tileSize, width: tileSize, margin: 1 }}>
-            <UserPostIndex  post={item} />
-          </View>
-        )}
-        numColumns={3}
-      />
+    <View >
+      <Text testID='user-email'>{userEmail}</Text>
+      {userPosts.map((item, index) => (
+        <ListItem testID={`user-post-${item.id}`} key={index}>
+          <Avatar style={{height: tileSize, width: tileSize}} source={{ uri: item.image }} />
+          <ListItem.Content>
+            <ListItem.Title>{item.track}</ListItem.Title>
+            <ListItem.Subtitle>{item.artists}</ListItem.Subtitle>
+          </ListItem.Content>
+        </ListItem>
+      ))}
     </View>
   )
 }
