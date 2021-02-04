@@ -40,17 +40,17 @@ const rootReducer = (state, action) => {
       return {
         ...state,
         userEmail: action.payload.email,
-        userPosts: action.payload.posts
+        userPosts: action.payload.posts,
       }
     case 'SET_USER_ID':
       return {
         ...state,
         userId: action.payload,
       }
-    case "SET_DELETE_POST":
+    case 'SET_DELETE_POST':
       return {
         ...state,
-        userPosts: action.payload,
+        userPosts: state.userPosts.filter(item => item.id !== action.payload),
       }
     default:
       return state
