@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import React, {  useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Text, View } from 'react-native'
+import { Text, View, FlatList, Dimensions} from 'react-native'
+import { ListItem } from 'react-native-elements'
 import User from '../modules/UserService'
+import UserPostIndex from './UserPostIndex'
 
 const UserProfile = () => {
   const { userProfile, userId, credentials } = useSelector(state => state)
@@ -10,21 +12,23 @@ const UserProfile = () => {
     User.show(userId, credentials)
   }, [])
 
-  let userPosts = userProfile.posts
-  userPosts = []
-  
-  let postList = userPosts.map((post) => {
-    return (
-      <Image source={post.image} />
-    )
-  })
+  const screenWidth = Dimensions.get("window").width
+  const numColumns = 3
+  const tileSize = screenWidth / numColumns
 
   return (
     <View>
       <Text testID='user-email'>{userProfile.email}</Text>
-      <View style={{ flex: 1, flexDirection: 'row' }}>
-        {userPosts && postList}
-      </View>
+      <FlatList
+        data={userProfile.posts}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({ item }) => (
+          <View style={{ flex: 1, flexDirection: 'column', height: tileSize, width: tileSize, margin: 1 }}>
+            <UserPostIndex  post={item} />
+          </View>
+        )}
+        numColumns={3}
+      />
     </View>
   )
 }
