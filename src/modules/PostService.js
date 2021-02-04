@@ -28,6 +28,11 @@ const PostService = {
       })
     }
   },
+  async delete(postId) {
+    let response = await axios.delete(`${API_URL}/posts/${postId}`, {
+      post: { post_id: postId },
+    })
+  },
 }
 
 export default PostService

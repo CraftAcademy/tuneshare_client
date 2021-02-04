@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Text, View, Dimensions, TouchableOpacity } from 'react-native'
+import { Text, View, Dimensions, TouchableOpacity, Button } from 'react-native'
 import User from '../modules/UserService'
 import { Avatar, ListItem } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'
@@ -35,6 +35,7 @@ const UserProfile = () => {
               <ListItem.Title>{item.track}</ListItem.Title>
               <ListItem.Subtitle>{item.artists}</ListItem.Subtitle>
             </ListItem.Content>
+            <Button testID={`delete-button-${item.id}`}>Delete</Button>
           </ListItem>
         </TouchableOpacity>
       ))}
