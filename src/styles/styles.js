@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     height: 60,
     alignSelf: 'center',
     marginTop: 20,
+    marginBottom: 300
   },
   linearGradient: {
     paddingLeft: 2,
@@ -128,6 +129,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 40,
   },
+  loginImage: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  }
 })
 
 export default styles
