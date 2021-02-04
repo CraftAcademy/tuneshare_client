@@ -20,14 +20,34 @@ const App = () => {
     return (
       <NavigationContainer style={{ height: 10 }}>
         <Tab.Navigator>
-          <Tab.Screen name='Feed' component={HomeStack} />
-          <Tab.Screen name='Post' component={PostForm} />
+          <Tab.Screen
+            name='Feed'
+            component={HomeStack}
+            options={{
+              tabBarIcon: () => (
+                <Ionicons name='musical-notes' size={24} color='blue' />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name='Post'
+            component={PostForm}
+            options={{
+              tabBarIcon: () => (
+                <Ionicons name='md-add-circle-outline' size={24} color='blue' />
+              ),
+            }}
+          />
           <Tab.Screen
             name='Profile'
             component={ProfileStack}
             options={{
               tabBarIcon: () => (
-                <Ionicons name='person-outline' size={24} color='red' />
+                <Ionicons
+                  name='ios-person-circle-outline'
+                  size={24}
+                  color='blue'
+                />
               ),
             }}
           />
