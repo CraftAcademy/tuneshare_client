@@ -29,12 +29,12 @@ const PostService = {
     }
   },
   async delete(postId) {
-    await axios.delete(`${API_URL}/posts/${postId}`, {
+    let response = await axios.delete(`${API_URL}/posts/${postId}`, {
       post: { post_id: postId },
     })
     store.dispatch({
       type: "SET_DELETE_POST",
-      payload: ""
+      payload: []
     })
   },
 }
