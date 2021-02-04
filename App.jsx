@@ -8,7 +8,7 @@ import HomeStack from './src/screens/HomeStack'
 import { useSelector } from 'react-redux'
 import styles from './src/styles/styles'
 import FlashMessage from 'react-native-flash-message'
-import UserProfile from './src/components/UserProfile'
+import ProfileStack from './src/screens/ProfileStack'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -21,7 +21,7 @@ const App = () => {
         <Tab.Navigator>
           <Tab.Screen name='Feed' component={HomeStack} />
           <Tab.Screen name='Post' component={PostForm} />
-          <Tab.Screen name='Profile' component={UserProfile} />
+          <Tab.Screen name='Profile' component={ProfileStack} />
         </Tab.Navigator>
       </NavigationContainer>
     )

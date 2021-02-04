@@ -3,13 +3,13 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
 import { Octicons } from '@expo/vector-icons'
 import PostService from '../modules/PostService'
 import LikeService from '../modules/LikeService'
 
-const PostIndex = ({ post }) => {
+const PostIndex = ({post}) => {
   const navigation = useNavigation()
   const { credentials } = useSelector(state => state)
 

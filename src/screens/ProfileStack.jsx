@@ -11,23 +11,20 @@ import UserProfile from '../components/UserProfile'
 const Stack = createStackNavigator()
 
 const HomeStack = () => {
-  const { appTitle } = useSelector(state => state)
+  const { userEmail } = useSelector(state => state)
+
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name='HomeScreen'
-        component={HomeScreen}
+        name='UserProfile'
+        component={UserProfile}
         options={() => ({
-          title: appTitle,
+          title: userEmail,
           headerStyle: styles.mainHeader,
           headerTitleStyle: styles.appTitle,
         })}
       />
-      <Stack.Screen name='CommentSection' component={CommentSection} />
-      <Stack.Screen
-        name='SinglePost'
-        component={SinglePost}
-      />
+      <Stack.Screen name='SinglePost' component={SinglePost} />
     </Stack.Navigator>
   )
 }
