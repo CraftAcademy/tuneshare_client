@@ -24,7 +24,11 @@ describe('User can', () => {
       url: 'http://localhost:3000/api/users/3',
       response: { user: user },
     })
-
+    cy.route({
+      method: 'DELETE',
+      url: 'http://localhost:3000/api/posts/1',
+      response: { },
+    })
     cy.visit('/')
     cy.get('[data-testid=login-screen]').within(() => {
       cy.get('[data-testid=login-email]').type('spotifyuser@spotify.com')
