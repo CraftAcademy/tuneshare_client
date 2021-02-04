@@ -15,9 +15,7 @@ const CommentSection = () => {
   }, [])
 
   const SingleComment = ({ content }) => <Text>{content}</Text>
-  const renderComment = ({ item }) => (
-    <SingleComment content={item.content} />
-  )
+  const renderComment = ({ item }) => <SingleComment content={item.content} />
 
   return (
     <View testID='comment-section' name='CommentSection'>
@@ -36,8 +34,8 @@ const CommentSection = () => {
         testID='comment-submit'
         title='Comment'
         onPress={() => {
-          Comments.create(post.id, credentials, newComment);
-          Comments.index(post.id);
+          Comments.create(post.id, credentials, newComment)
+          Comments.index(post.id)
         }}
       />
     </View>

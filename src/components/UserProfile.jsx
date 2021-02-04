@@ -9,10 +9,20 @@ const UserProfile = () => {
   useEffect(() => {
     User.show(userId, credentials)
   }, [])
-
+  
+  let postList = (
+    userProfile.posts.map((post) => {
+      return (
+        <Image source={post.image} /> 
+      )
+      }))
+  
   return (
     <View>
       <Text testID='user-email'>{userProfile.email}</Text>
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        {/* {userProfile && postList} */}
+      </View>
     </View>
   )
 }

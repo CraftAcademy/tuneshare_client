@@ -7,7 +7,7 @@ const initialState = {
   trackDetails: null,
   comments: [],
   userId: null,
-  userProfile: {}
+  userProfile: {},
 }
 
 export default initialState

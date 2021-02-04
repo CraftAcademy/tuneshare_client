@@ -35,7 +35,7 @@ describe('User can view their profile', () => {
   })
 
   describe('successfully ', () => {
-    it('see a collection of thier posts', () => {
+    it('see their email', () => {
       cy.get('[data-testid=user-email]').should(
         'contain',
         'spotifyuser@spotify.com'

@@ -5,6 +5,7 @@ const API_URL = 'http://localhost:3000/api'
 
 const User = {
   async show(userId, credentials) {
+    debugger
     let response = await axios.get(`${API_URL}/users/${userId}`, {
       headers: credentials,
     })
