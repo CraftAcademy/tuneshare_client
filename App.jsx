@@ -33,11 +33,7 @@ const App = () => {
             name='Login'
             component={LoginScreen}
             testID='login-screen'
-            options={{
-              title: 'Log In To TuneShare',
-              headerStyle: styles.mainHeader,
-              headerTitleStyle: styles.appTitle,
-            }}
+            options={{headerShown: false}}
           />
         </Stack.Navigator>
         <FlashMessage testID='flash-message' position='center' />

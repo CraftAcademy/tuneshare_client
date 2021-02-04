@@ -42,19 +42,21 @@ const LoginScreen = (props) => {
   const image = {uri: 'https://images.wallpaperscraft.com/image/headphones_bw_headset_120277_938x1668.jpg'}
 
   return (
-    <View testID="login-screen">
+    <View style={{flex: 1, flexDirection: 'column'}} testID="login-screen">
       <ImageBackground source={image} style={styles.loginImage}>
         <TextInput
           testID="login-email"
+          placeholderTextColor='white' 
           style={styles.loginInput}
-          placeholder="Enter the email you use for your spotify account"
+          placeholder="Enter your email..."
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           testID="login-password"
+          placeholderTextColor='white'
           secureTextEntry={true}
           style={styles.loginInput}
-          placeholder="Enter the password you use for your spotify account"
+          placeholder="Enter your password..."
           onChangeText={(text) => setPassword(text)}
         />
         <TouchableOpacity
