@@ -39,7 +39,7 @@ const LoginScreen = (props) => {
       })
   }
 
-  const image = {uri: 'https://images.wallpaperscraft.com/image/headphones_bw_headset_120277_938x1668.jpg'}
+  const image = require('../images/image.png')
 
   return (
     <View style={{flex: 1, flexDirection: 'column'}} testID="login-screen">

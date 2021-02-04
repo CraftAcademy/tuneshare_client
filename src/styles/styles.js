@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
   card_container: {
     position: 'absolute',
     margin: 5,
-    backgroundColor: 'black',
+    width: Dimensions.get('window').width,
+    backgroundColor: 'rgba(0,0,0,0.3)',
     alignItems: 'center',
     position: 'relative',
     overflow: 'hidden',
