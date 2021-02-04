@@ -133,6 +133,14 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center"
+  },
+  commentlike: {
+    flexDirection: 'row',
+    alignItems: 'left'
+  },
+  commentButtonText: {
+    fontSize: 15,
+    fontFamily: 'Arial'
   }
 })
 
