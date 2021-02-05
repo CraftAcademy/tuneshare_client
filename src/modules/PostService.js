@@ -32,6 +32,23 @@ const PostService = {
       })
     }
   },
+  async delete(postId) {
+    try {
+      let response = await axios.delete(
+        `${API_URL}/posts/${postId}`,
+        { post_id: postId },
+      )
+      store.dispatch({
+        type: 'SET_DELETE_POST',
+        payload: postId,
+      })
+    } catch (error) {
+      store.dispatch({
+        type: 'SET_ERROR_MESSAGE',
+        payload: error.response.data.message,
+      })
+    }
+  },
 }
 
 export default PostService
