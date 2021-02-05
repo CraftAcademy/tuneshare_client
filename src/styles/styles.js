@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#604df0',
     fontSize: 32,
-  }
+  },
 })
 
 export default styles
