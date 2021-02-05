@@ -136,6 +136,14 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center"
+  },
+  userInfo: {
+    padding: 20,
+    alignSelf: 'center',
+    fontFamily: 'Cochin-Bold',
+    fontWeight: 'bold',
+    color: '#604df0',
+    fontSize: 32,
   }
 })
 
