@@ -14,6 +14,7 @@ const HomeStack = () => {
         component={UserProfile}
         options={() => ({
           title: 'My Profile',
+          headerShown: false,
           headerStyle: styles.mainHeader,
           headerTitleStyle: styles.appTitle,
         })}
