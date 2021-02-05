@@ -19,7 +19,7 @@ const LoginScreen = (props) => {
   const [loginMessage, setLoginMessage] = useState()
   const dispatch = useDispatch()
   const deviseAuth = new Auth({
-    host: 'http://localhost:3000',
+    host: 'https://tuneshare-2021.herokuapp.com',
   })
 
   const authWithDevise = async () => {
