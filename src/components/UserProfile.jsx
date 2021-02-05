@@ -38,7 +38,7 @@ const UserProfile = () => {
             </ListItem.Content>
             <Button 
               testID={`delete-button-${item.id}`}
-              onPress={() => {PostService.delete(item.id, credentials)}}
+              onPress={() => {PostService.delete(item.id)}}
             >Delete</Button>
           </ListItem>
         </TouchableOpacity>

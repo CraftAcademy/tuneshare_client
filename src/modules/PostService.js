@@ -28,12 +28,11 @@ const PostService = {
       })
     }
   },
-  async delete(postId, credentials) {
+  async delete(postId) {
     try {
       let response = await axios.delete(
         `${API_URL}/posts/${postId}`,
         { post_id: postId },
-        { headers: credentials }
       )
       store.dispatch({
         type: 'SET_DELETE_POST',
