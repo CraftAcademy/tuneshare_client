@@ -13,7 +13,6 @@ import { Avatar, ListItem } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'
 import PostService from '../modules/PostService'
 import { Ionicons } from '@expo/vector-icons'
-// import styles from '../styles/styles'
 
 const UserProfile = () => {
   const navigation = useNavigation()
@@ -33,49 +32,53 @@ const UserProfile = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      <View style={styles.profileHeader}>
         <Image style={styles.avatar} source={image} />
         <Text testID='user-email' style={styles.name}>
           {userEmail}
         </Text>
       </View>
 
-      <View style={styles.body}>
-        <View style={styles.bodyContent}>
-          {userPosts &&
-            userPosts.map((item, index) => (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate('SinglePost', { post: item })
-                }
+      {userPosts &&
+        userPosts.map((item, index) => (
+          <View style={styles.description}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SinglePost', { post: item })}
+            >
+              <ListItem
+                style={styles.description}
+                testID={`user-post-${item.id}`}
+                key={index}
               >
-                <ListItem
-                  style={styles.row}
-                  testID={`user-post-${item.id}`}
-                  key={index}
-                >
-                  <Avatar
-                    style={{ height: tileSize, width: tileSize }}
-                    source={{ uri: item.image }}
-                  />
-                  <ListItem.Content>
-                    <ListItem.Title>{item.track}</ListItem.Title>
-                    <ListItem.Subtitle>{item.artists}</ListItem.Subtitle>
-                  </ListItem.Content>
-                  <Ionicons
-                    name='trash'
-                    size={26}
-                    color='#22272c'
-                    testID={`delete-button-${item.id}`}
-                    onPress={() => {
-                      PostService.delete(item.id)
-                    }}
-                  />
-                </ListItem>
-              </TouchableOpacity>
-            ))}
-        </View>
-      </View>
+                <Avatar
+                  style={{ height: tileSize, width: tileSize }}
+                  source={{ uri: item.image }}
+                />
+                <ListItem.Content>
+                  <ListItem.Title
+                    style={{ fontFamily: 'Copperplate', color: '#1c052b' }}
+                  >
+                    {item.track}{' '}
+                  </ListItem.Title>
+                  <ListItem.Subtitle
+                    style={{ fontFamily: 'GurmukhiMN', color: '#4f1973' }}
+                  >
+                    {item.artists}
+                  </ListItem.Subtitle>
+                </ListItem.Content>
+                <Ionicons
+                  name='trash'
+                  size={26}
+                  color='#cc1433'
+                  testID={`delete-button-${item.id}`}
+                  onPress={() => {
+                    PostService.delete(item.id)
+                  }}
+                />
+              </ListItem>
+            </TouchableOpacity>
+          </View>
+        ))}
     </View>
   )
 }
@@ -83,26 +86,29 @@ const UserProfile = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#8ebcf5',
   },
-  header: {
+  profileHeader: {
     backgroundColor: '#2a4158',
-    height: 190,
+    height: Dimensions.get('window').height * 0.2,
+    alignItems: 'center',
   },
   avatar: {
-    width: 130,
-    height: 130,
-    borderRadius: 63,
+    width: 100,
+    height: 100,
+    borderRadius: 360,
     borderWidth: 4,
-    borderColor: 'white',
-    marginBottom: 10,
+    borderColor: '#480c70',
+    marginTop: 32,
     alignSelf: 'center',
     position: 'absolute',
-    marginTop: 30,
+    paddingTop: 60,
   },
   body: {
-    //marginTop: ,
-    height: 700,
+    height: Dimensions.get('window').height * 0.8,
     backgroundColor: '#597387',
+    alignItems: 'center',
+    padding: 10,
   },
   bodyContent: {
     flex: 1,
@@ -112,15 +118,24 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 22,
     color: 'white',
-    fontWeight: '600',
+    fontWeight: 'bold',
     fontFamily: 'AppleSDGothicNeo-Thin',
-    alignSelf: 'center',
+    textShadowColor: '#4a3c91',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 6,
+    paddingTop: 140,
+    paddingBottom: 12,
   },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 40,
-    marginTop: 10,
+  description: {
+    fontSize: 18,
+    margin: 6,
+    color: 'rbga(10,54,110,0.2)',
+    borderRadius: 4,
+    borderColor: '#6a6fad',
+    borderLeftWidth: 2,
+    borderRightWidth: 2,
+    borderBottomWidth: 3,
+    borderTopWidth: 0.5,
   },
 })
 

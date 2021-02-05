@@ -6,7 +6,7 @@ import {
   FlatList,
   SafeAreaView,
   Text,
-  View
+  View,
 } from 'react-native'
 import { ListItem, Card } from 'react-native-elements'
 import TrackService from '../modules/TrackService'

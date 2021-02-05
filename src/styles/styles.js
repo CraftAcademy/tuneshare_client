@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Arial',
     fontSize: 15,
     color: 'black',
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   playButton: {
     color: 'grey',
@@ -132,8 +132,8 @@ const styles = StyleSheet.create({
   },
   loginImage: {
     flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center"
+    resizeMode: 'cover',
+    justifyContent: 'center',
   },
   userInfo: {
     padding: 20,
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: 'rgba(27, 34, 224,0.4)',
     color: '#ffffff',
-    textShadowColor: '#320054'
+    textShadowColor: '#320054',
   },
   searchButton: {
     height: 45,

@@ -13,7 +13,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { Fontisto } from '@expo/vector-icons'
 import { useDispatch } from 'react-redux'
 
-const LoginScreen = (props) => {
+const LoginScreen = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loginMessage, setLoginMessage] = useState()
@@ -22,10 +22,10 @@ const LoginScreen = (props) => {
     host: 'https://tuneshare-2021.herokuapp.com',
   })
 
-  const authWithDevise = async () => { 
+  const authWithDevise = async () => {
     await deviseAuth
       .signIn(email, password)
-      .then((resp) => {
+      .then(resp => {
         props.navigation.navigate('HomeScreen')
         dispatch({
           type: 'SET_CURRENT_USER',
@@ -34,7 +34,7 @@ const LoginScreen = (props) => {
           },
         })
       })
-      .catch((error) => {
+      .catch(error => {
         setLoginMessage(error.response.data.errors[0])
       })
   }
@@ -42,26 +42,26 @@ const LoginScreen = (props) => {
   const image = require('../images/image.png')
 
   return (
-    <View style={{flex: 1, flexDirection: 'column'}} testID="login-screen">
+    <View style={{ flex: 1, flexDirection: 'column' }} testID='login-screen'>
       <ImageBackground source={image} style={styles.loginImage}>
         <TextInput
-          testID="login-email"
-          placeholderTextColor='white' 
+          testID='login-email'
+          placeholderTextColor='white'
           style={styles.loginInput}
-          placeholder="Enter your email..."
-          onChangeText={(text) => setEmail(text)}
+          placeholder='Enter your email...'
+          onChangeText={text => setEmail(text)}
         />
         <TextInput
-          testID="login-password"
+          testID='login-password'
           placeholderTextColor='white'
           secureTextEntry={true}
           style={styles.loginInput}
-          placeholder="Enter your password..."
-          onChangeText={(text) => setPassword(text)}
+          placeholder='Enter your password...'
+          onChangeText={text => setPassword(text)}
         />
         <TouchableOpacity
-          raised="true"
-          testID="login-submit"
+          raised='true'
+          testID='login-submit'
           hitSlop={styles.loginHitSlop}
           style={styles.loginSubmit}
           onPress={() => {
@@ -91,9 +91,9 @@ const LoginScreen = (props) => {
             <Text style={styles.buttonContent}>
               Sign In With Spotify
               <Fontisto
-                name="spotify"
+                name='spotify'
                 style={{ paddingLeft: 16 }}
-                color="#ffffff"
+                color='#ffffff'
                 size={24}
               />
             </Text>
