@@ -22,7 +22,7 @@ const LoginScreen = (props) => {
     host: 'https://tuneshare-2021.herokuapp.com',
   })
 
-  const authWithDevise = async () => {
+  const authWithDevise = async () => { 
     await deviseAuth
       .signIn(email, password)
       .then((resp) => {
