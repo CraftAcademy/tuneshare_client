@@ -1,6 +1,13 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Text, View, Dimensions, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import {
+  Text,
+  View,
+  Dimensions,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+} from 'react-native'
 import User from '../modules/UserService'
 import { Avatar, ListItem } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'
@@ -11,7 +18,7 @@ import { Ionicons } from '@expo/vector-icons'
 const UserProfile = () => {
   const navigation = useNavigation()
   const { userEmail, userPosts, userId, credentials } = useSelector(
-    (state) => state
+    state => state
   )
 
   useEffect(() => {
@@ -22,17 +29,19 @@ const UserProfile = () => {
   const numColumns = 3
   const tileSize = screenWidth / numColumns
 
+  const image = require('../images/image1.jpg')
+
   return (
-    <View>
-      <Text style={styles.container} testID='user-email'></Text>
-      <View style={styles.header}></View>
-      <Image
-        style={styles.avatar}
-        source={{ uri: 'https://wallpapercave.com/wp/KwS4poN.jpg' }}
-      />
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Image style={styles.avatar} source={image} />
+        <Text testID='user-email' style={styles.name}>
+          {userEmail}
+        </Text>
+      </View>
+
       <View style={styles.body}>
         <View style={styles.bodyContent}>
-          <Text style={styles.name}>{userEmail}</Text>
           {userPosts &&
             userPosts.map((item, index) => (
               <TouchableOpacity
@@ -40,7 +49,11 @@ const UserProfile = () => {
                   navigation.navigate('SinglePost', { post: item })
                 }
               >
-                <ListItem testID={`user-post-${item.id}`} key={index}>
+                <ListItem
+                  style={styles.row}
+                  testID={`user-post-${item.id}`}
+                  key={index}
+                >
                   <Avatar
                     style={{ height: tileSize, width: tileSize }}
                     source={{ uri: item.image }}
@@ -68,9 +81,12 @@ const UserProfile = () => {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   header: {
     backgroundColor: '#2a4158',
-    height: 120,
+    height: 190,
   },
   avatar: {
     width: 130,
@@ -81,10 +97,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'center',
     position: 'absolute',
-    marginTop: 50,
+    marginTop: 30,
   },
   body: {
-    marginTop: 40,
+    //marginTop: ,
+    height: 700,
+    backgroundColor: '#597387',
   },
   bodyContent: {
     flex: 1,
@@ -93,10 +111,17 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 22,
-    color: '#696969',
+    color: 'white',
     fontWeight: '600',
-    fontFamily: 'Montserrat'
-  }
+    fontFamily: 'AppleSDGothicNeo-Thin',
+    alignSelf: 'center',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 40,
+    marginTop: 10,
+  },
 })
 
 export default UserProfile
