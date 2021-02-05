@@ -104,7 +104,7 @@ const LoginScreen = (props) => {
             message: loginMessage,
             type: 'warning',
             autoHide: true,
-            duration: 6000,
+            duration: 4000,
             backgroundColor: '#E50914',
             color: '#C13584',
             opacity: 0.5,
