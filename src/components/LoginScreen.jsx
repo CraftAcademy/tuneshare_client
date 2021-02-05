@@ -19,7 +19,7 @@ const LoginScreen = (props) => {
   const [loginMessage, setLoginMessage] = useState()
   const dispatch = useDispatch()
   const deviseAuth = new Auth({
-    host: 'http://localhost:3000',
+    host: 'https://tuneshare-2021.herokuapp.com',
   })
 
   const authWithDevise = async () => {
@@ -39,22 +39,24 @@ const LoginScreen = (props) => {
       })
   }
 
-  const image = {uri: 'https://images.wallpaperscraft.com/image/headphones_bw_headset_120277_938x1668.jpg'}
+  const image = require('../images/image.png')
 
   return (
-    <View testID="login-screen">
+    <View style={{flex: 1, flexDirection: 'column'}} testID="login-screen">
       <ImageBackground source={image} style={styles.loginImage}>
         <TextInput
           testID="login-email"
+          placeholderTextColor='white' 
           style={styles.loginInput}
-          placeholder="Enter the email you use for your spotify account"
+          placeholder="Enter your email..."
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           testID="login-password"
+          placeholderTextColor='white'
           secureTextEntry={true}
           style={styles.loginInput}
-          placeholder="Enter the password you use for your spotify account"
+          placeholder="Enter your password..."
           onChangeText={(text) => setPassword(text)}
         />
         <TouchableOpacity

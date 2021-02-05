@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
   card_container: {
     position: 'absolute',
     margin: 5,
-    backgroundColor: 'black',
+    width: Dimensions.get('window').width,
+    backgroundColor: 'rgba(0,0,0,0.3)',
     alignItems: 'center',
     position: 'relative',
     overflow: 'hidden',
@@ -97,8 +98,8 @@ const styles = StyleSheet.create({
     width: '50%',
     height: 60,
     alignSelf: 'center',
-    marginTop: 20,
-    marginBottom: 300
+    marginTop: 35,
+    marginBottom: 20,
   },
   linearGradient: {
     paddingLeft: 2,
@@ -119,28 +120,30 @@ const styles = StyleSheet.create({
     textShadowRadius: 4,
   },
   loginInput: {
-    margin: 15,
+    margin: 20,
     height: 60,
     borderColor: '#778899',
     borderWidth: 1,
-    borderRadius: 4,
-    backgroundColor: '#d3d3d3',
-    color: 'black',
+    borderRadius: 7,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    color: 'white',
+    textShadowColor: 'black',
+    textShadowRadius: 4,
     fontWeight: 'bold',
-    marginTop: 40,
+    paddingLeft: 10,
   },
   loginImage: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center"
   },
-  commentlike: {
-    flexDirection: 'row',
-    alignItems: 'left'
-  },
-  commentButtonText: {
-    fontSize: 15,
-    fontFamily: 'Arial'
+  userInfo: {
+    padding: 20,
+    alignSelf: 'center',
+    fontFamily: 'Cochin-Bold',
+    fontWeight: 'bold',
+    color: '#604df0',
+    fontSize: 32,
   }
 })
 

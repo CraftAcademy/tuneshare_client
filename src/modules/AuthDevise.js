@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from '../state/store/store'
 import AsyncStorage from '@react-native-community/async-storage'
 
-const apiUrl = 'http://localhost:3000'
+const apiUrl = 'https://tuneshare-2021.herokuapp.com'
 const defaultOptions = {
   host: apiUrl,
   mode: 'local',
@@ -99,6 +99,10 @@ class Auth {
         store.dispatch({
           type: 'SET_CREDENTIALS',
           payload: response.headers,
+        })
+        store.dispatch({
+          type: 'SET_USER_ID',
+          payload: response.data.data.id,
         })
         this.setSession(response.headers)
         resolve(response.data)

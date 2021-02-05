@@ -11,7 +11,7 @@ import PostService from '../modules/PostService'
 const PostForm = props => {
   const [search, setSearch] = useState()
   const [description, setDescription] = useState()
-  const { searchResult, trackDetails, errorMessage } = useSelector(
+  const { searchResult, trackDetails, errorMessage, credentials } = useSelector(
     state => state
   )
 
@@ -85,7 +85,8 @@ const PostForm = props => {
               PostService.create(
                 trackDetails,
                 description,
-                props.navigation.navigate
+                props.navigation.navigate,
+                credentials
               )
             }
           />

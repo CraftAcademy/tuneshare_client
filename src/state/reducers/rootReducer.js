@@ -10,7 +10,7 @@ const rootReducer = (state, action) => {
         ...state,
         searchResult: action.payload.tracks,
       }
-    case "DISPLAY_POST_COMMENTS":
+    case 'DISPLAY_POST_COMMENTS':
       return {
         ...state,
         comments: action.payload,
@@ -35,6 +35,22 @@ const rootReducer = (state, action) => {
       return {
         ...state,
         errorMessage: action.payload,
+      }
+    case 'DISPLAY_USER_PROFILE':
+      return {
+        ...state,
+        userEmail: action.payload.email,
+        userPosts: action.payload.posts,
+      }
+    case 'SET_USER_ID':
+      return {
+        ...state,
+        userId: action.payload,
+      }
+    case 'SET_DELETE_POST':
+      return {
+        ...state,
+        userPosts: state.userPosts.filter(item => item.id !== action.payload),
       }
     default:
       return state

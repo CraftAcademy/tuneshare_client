@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Dimensions } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
 import TrackPlayer from './TrackPlayer'
@@ -11,11 +11,14 @@ import LikeService from '../modules/LikeService'
 
 const PostIndex = ({ post }) => {
   const navigation = useNavigation()
-  const { credentials } = useSelector((state) => state)
+  const { credentials } = useSelector(state => state)
 
   return (
     <View style={styles.card_container} testID='post-index'>
-      <Card testID={`post-card-${post.id}`}>
+      <Card
+        width={Dimensions.get('window').width * 0.9}
+        testID={`post-card-${post.id}`}
+      >
         <Card.Title testID={`post-title-${post.id}`} style={styles.track}>
           {post.track}
         </Card.Title>
@@ -31,16 +34,7 @@ const PostIndex = ({ post }) => {
           {post.description}
         </Text>
         <Card.Divider />
-        <View style={styles.commentlike}>
-          <TouchableOpacity
-            style={styles.commentButton}
-            testID='comment-button'
-            onPress={() =>
-              navigation.navigate('CommentSection', { post: post })
-            }
-          >
-            <Text style={styles.commentButtonText}>Comment</Text>
-          </TouchableOpacity>
+        <View style={{ flexDirection: 'row' }}>
           <Octicons
             name='flame'
             size={24}
@@ -52,6 +46,15 @@ const PostIndex = ({ post }) => {
             }}
           ></Octicons>
           <Text testID={`likeCount-${post.id}`}>{post.likes}</Text>
+          <TouchableOpacity
+            style={styles.commentButton}
+            testID='comment-button'
+            onPress={() =>
+              navigation.navigate('CommentSection', { post: post })
+            }
+          >
+            <Text>Comment</Text>
+          </TouchableOpacity>
         </View>
       </Card>
     </View>
