@@ -21,13 +21,13 @@ const LoginScreen = (props) => {
   const storageKey = 'auth-storage'
   const [response, setResponse] = useState(null);
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
   const [loginMessage, setLoginMessage] = useState()
   const dispatch = useDispatch()
-  const deviseAuth = new Auth({
-    host: 'https://tuneshare-2021.herokuapp.com',
-  })
+  // const deviseAuth = new Auth({
+  //   host: 'https://tuneshare-2021.herokuapp.com',
+  // })
 
   useEffect(() => {
     if (response?.type === 'success') {
