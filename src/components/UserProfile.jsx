@@ -16,7 +16,7 @@ import { Ionicons } from '@expo/vector-icons'
 
 const UserProfile = () => {
   const navigation = useNavigation()
-  const { userEmail, userPosts, userId, credentials } = useSelector(
+  const { userEmail, userPosts, userId, credentials, currentUser } = useSelector(
     state => state
   )
 
@@ -35,7 +35,7 @@ const UserProfile = () => {
       <View style={styles.profileHeader}>
         <Image style={styles.avatar} source={image} />
         <Text testID='user-email' style={styles.name}>
-          {userEmail}
+          {userEmail || currentUser.email}
         </Text>
       </View>
 

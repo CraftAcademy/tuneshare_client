@@ -2,6 +2,7 @@
   "expo": {
     "name": "tuneshare_client",
     "slug": "tuneshare_client",
+    "scheme": "tuneshare",
     "version": "1.0.0",
     "entryPoint": "./index.js",
     "orientation": "portrait",
