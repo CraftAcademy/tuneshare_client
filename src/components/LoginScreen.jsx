@@ -47,7 +47,7 @@ const LoginScreen = (props) => {
 
   const authWithSpotify = async () => {
     let resp = await WebBrowser.openAuthSessionAsync(
-      `https://c99f0c11f54d.ngrok.io/auth/spotify?redirect_url=${encodeURIComponent(Linking.makeUrl())}`
+      `https://tuneshare-2021.herokuapp.com/auth/spotify?redirect_url=${encodeURIComponent(Linking.makeUrl())}`
     );
     setResponse(resp);
   };
@@ -120,13 +120,13 @@ const LoginScreen = (props) => {
             style={styles.linearGradient}
           >
             <Text style={styles.buttonContent}>
-              Sign In With Spotify 
+              Sign In With Spotify
                 <Fontisto
-                  name="spotify"
-                  style={{ paddingLeft: 16 }}
-                  color="#ffffff"
-                  size={24}
-                />
+                name="spotify"
+                style={{ paddingLeft: 16 }}
+                color="#ffffff"
+                size={24}
+              />
             </Text>
           </LinearGradient>
         </TouchableOpacity>
