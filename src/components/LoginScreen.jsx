@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   View,
   TextInput,
@@ -12,8 +12,16 @@ import styles from '../styles/styles'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Fontisto } from '@expo/vector-icons'
 import { useDispatch } from 'react-redux'
+import * as WebBrowser from 'expo-web-browser';
+import * as Linking from 'expo-linking';
+import AsyncStorage from '@react-native-community/async-storage'
+
 
 const LoginScreen = (props) => {
+  const storage = AsyncStorage
+  const storageKey = 'auth-storage'
+  const [response, setResponse] = useState(null);
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loginMessage, setLoginMessage] = useState()
@@ -22,31 +30,53 @@ const LoginScreen = (props) => {
     host: 'https://tuneshare-2021.herokuapp.com',
   })
 
-  const authWithDevise = async () => { 
-    await deviseAuth
-      .signIn(email, password)
-      .then((resp) => {
-        props.navigation.navigate('HomeScreen')
-        dispatch({
-          type: 'SET_CURRENT_USER',
-          payload: {
-            authenticated: true,
-          },
-        })
+  useEffect(() => {
+    if (response?.type === 'success') {
+      let payload = JSON.parse(decodeURI(response.url.split('?data=')[1]))
+      storage.setItem(storageKey, JSON.stringify(payload.dta_credentails))
+      props.navigation.navigate('HomeScreen')
+      dispatch({
+        type: 'SET_CURRENT_USER',
+        payload: {
+          currentUser: payload.data,
+          authenticated: true,
+        },
       })
-      .catch((error) => {
-        setLoginMessage(error.response.data.errors[0])
-      })
-  }
+    }
+  }, [response]);
+
+  const authWithSpotify = async () => {
+    let resp = await WebBrowser.openAuthSessionAsync(
+      `https://c99f0c11f54d.ngrok.io/auth/spotify?redirect_url=${encodeURIComponent(Linking.makeUrl())}`
+    );
+    setResponse(resp);
+  };
+
+  // const authWithDevise = async () => {
+  //   await deviseAuth
+  //     .signIn(email, password)
+  //     .then((resp) => {
+  //       props.navigation.navigate('HomeScreen')
+  //       dispatch({
+  //         type: 'SET_CURRENT_USER',
+  //         payload: {
+  //           authenticated: true,
+  //         },
+  //       })
+  //     })
+  //     .catch((error) => {
+  //       setLoginMessage(error.response.data.errors[0])
+  //     })
+  // }
 
   const image = require('../images/image.png')
 
   return (
-    <View style={{flex: 1, flexDirection: 'column'}} testID="login-screen">
+    <View style={{ flex: 1, flexDirection: 'column' }} testID="login-screen">
       <ImageBackground source={image} style={styles.loginImage}>
-        <TextInput
+        {/* <TextInput
           testID="login-email"
-          placeholderTextColor='white' 
+          placeholderTextColor='white'
           style={styles.loginInput}
           placeholder="Enter your email..."
           onChangeText={(text) => setEmail(text)}
@@ -58,14 +88,15 @@ const LoginScreen = (props) => {
           style={styles.loginInput}
           placeholder="Enter your password..."
           onChangeText={(text) => setPassword(text)}
-        />
+        /> */}
+
         <TouchableOpacity
           raised="true"
           testID="login-submit"
           hitSlop={styles.loginHitSlop}
           style={styles.loginSubmit}
           onPress={() => {
-            authWithDevise()
+            authWithSpotify()
             {
               !loginMessage &&
                 showMessage({
@@ -89,13 +120,13 @@ const LoginScreen = (props) => {
             style={styles.linearGradient}
           >
             <Text style={styles.buttonContent}>
-              Sign In With Spotify
-              <Fontisto
-                name="spotify"
-                style={{ paddingLeft: 16 }}
-                color="#ffffff"
-                size={24}
-              />
+              Sign In With Spotify 
+                <Fontisto
+                  name="spotify"
+                  style={{ paddingLeft: 16 }}
+                  color="#ffffff"
+                  size={24}
+                />
             </Text>
           </LinearGradient>
         </TouchableOpacity>

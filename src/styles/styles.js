@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Cochin-Bold',
     fontWeight: 'bold',
     color: '#604df0',
-    fontSize: 32,
+    fontSize: 24,
   }
 })
 

@@ -10,7 +10,7 @@ import styles from '../styles/styles'
 
 const UserProfile = () => {
   const navigation = useNavigation()
-  const { userEmail, userPosts, userId, credentials } = useSelector(
+  const { userEmail, userPosts, userId, credentials, currentUser } = useSelector(
     state => state
   )
 
@@ -25,7 +25,7 @@ const UserProfile = () => {
   return (
     <View>
       <Text style={styles.userInfo} testID='user-email'>
-        {userEmail}
+        {userEmail || currentUser.email}
       </Text>
       {userPosts &&
         userPosts.map((item, index) => (
