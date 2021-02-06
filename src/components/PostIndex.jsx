@@ -17,6 +17,16 @@ const PostIndex = ({ post }) => {
   return (
     <View style={styles.card_container} testID='post-index'>
       <Card
+        containerStyle={{
+          backgroundColor: 'rgba(255,251,245,0.7)',
+          alignSelf: 'center',
+          borderRadius: 4,
+          borderBottomWidth: 2,
+          borderRightWidth: 0.8,
+          borderRightWidth: 0.8,
+          borderTopWidth: 0.1,
+          borderColor: '#361e75',
+        }}
         width={Dimensions.get('window').width * 0.9}
         testID={`post-card-${post.id}`}
       >

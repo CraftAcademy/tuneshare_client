@@ -16,6 +16,10 @@ const SinglePost = () => {
     <ImageBackground source={image} style={styles.loginImage}>
       <View style={styles.card_container} testID='post-index'>
         <Card
+          containerStyle={{
+            backgroundColor: 'rgba(255,251,245,0.7)',
+            alignSelf: 'center',
+          }}
           style={{ backgroundColor: 'rgba(0,0,0,0.2)' }}
           testID={`post-card-${post.id}`}
         >

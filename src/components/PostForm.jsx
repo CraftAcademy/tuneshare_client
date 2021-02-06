@@ -41,6 +41,7 @@ const PostForm = props => {
             testID='searchButton'
             onPress={() => TrackService.index(search)}
           >
+            <Ionicons name='md-search-circle-sharp' size={42} color='white' />
             <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Search</Text>
           </TouchableHighlight>
         </View>

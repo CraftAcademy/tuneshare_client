@@ -1,25 +1,27 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { useSelector } from 'react-redux'
 import styles from '../styles/styles'
 import CommentSection from '../components/CommentSection'
 import HomeScreen from '../components/HomeScreen'
-import TuneShareLogo from '../components/TuneShareLogo'
+import { Image } from 'react-native'
 
 const Stack = createStackNavigator()
 
+const image = require('../images/HeaderLogo.png')
+
 const HomeStack = () => {
-  const { appTitle } = useSelector(state => state)
   return (
     <Stack.Navigator>
       <Stack.Screen
         name='HomeScreen'
         component={HomeScreen}
-        options={props => ({
-          headerTitle: () => <TuneShareLogo {...props} />,
+        options={{
+          headerTitle: () => (
+            <Image source={image} style={styles.appTitle} />
+          ),
           headerStyle: styles.mainHeader,
-          headerTitleStyle: styles.appTitle,
-        })}
+          // headerTitleStyle: styles.appTitle,
+        }}
       />
       <Stack.Screen
         options={() => ({

@@ -23,7 +23,6 @@ const LoginScreen = props => {
     host: 'https://tuneshare-2021.herokuapp.com',
   })
 
-
   const authWithDevise = async () => {
     await deviseAuth
       .signIn(email, password)
@@ -91,15 +90,12 @@ const LoginScreen = props => {
             locations={[0.1, 0.8]}
             style={styles.linearGradient}
           >
-            <Text style={styles.buttonContent}>
-              Sign In With Spotify
-              <Fontisto
-                name='spotify'
-                style={{ paddingLeft: 16 }}
-                color='#ffffff'
-                size={24}
-              />
-            </Text>
+            <Fontisto
+              name='spotify'
+              style={{ paddingLeft: 16 }}
+              color='#ffffff'
+              size={40}
+            />
           </LinearGradient>
         </TouchableOpacity>
         {loginMessage &&

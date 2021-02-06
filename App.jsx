@@ -19,13 +19,15 @@ const App = () => {
   if (authenticated) {
     return (
       <NavigationContainer style={{ height: 10 }}>
-        <Tab.Navigator>
+        <Tab.Navigator
+          tabBarOptions={{ showIcon: true, showLabel: false, backgroundColor: 'rgba(227,255,232,0.1)'}}
+        >
           <Tab.Screen
             name='Feed'
             component={HomeStack}
             options={{
               tabBarIcon: () => (
-                <Ionicons name='musical-notes' size={24} color='blue' />
+                <Ionicons name='musical-notes' size={28} color='#4b1e8a' />
               ),
             }}
           />
@@ -34,7 +36,7 @@ const App = () => {
             component={PostForm}
             options={{
               tabBarIcon: () => (
-                <Ionicons name='md-add-circle-outline' size={24} color='blue' />
+                <Ionicons name='md-add-circle-outline' size={28} color='#4b1e8a' />
               ),
             }}
           />
@@ -45,8 +47,8 @@ const App = () => {
               tabBarIcon: () => (
                 <Ionicons
                   name='ios-person-circle-outline'
-                  size={24}
-                  color='blue'
+                  size={28}
+                  color='#4b1e8a'
                 />
               ),
             }}
