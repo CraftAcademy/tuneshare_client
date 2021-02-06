@@ -21,13 +21,13 @@ const LoginScreen = (props) => {
   const storageKey = 'auth-storage'
   const [response, setResponse] = useState(null);
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
   const [loginMessage, setLoginMessage] = useState()
   const dispatch = useDispatch()
-  const deviseAuth = new Auth({
-    host: 'https://tuneshare-2021.herokuapp.com',
-  })
+  // const deviseAuth = new Auth({
+  //   host: 'https://tuneshare-2021.herokuapp.com',
+  // })
 
   useEffect(() => {
     if (response?.type === 'success') {
@@ -57,8 +57,8 @@ const LoginScreen = (props) => {
     <View style={{ flex: 1, flexDirection: 'column' }} testID="login-screen">
       <ImageBackground source={image} style={styles.loginImage}>
         <TouchableOpacity
-          raised="true"
-          testID="login-submit"
+          raised='true'
+          testID='login-submit'
           hitSlop={styles.loginHitSlop}
           style={styles.loginSubmit}
           onPress={() => {
@@ -101,7 +101,7 @@ const LoginScreen = (props) => {
             message: loginMessage,
             type: 'warning',
             autoHide: true,
-            duration: 6000,
+            duration: 4000,
             backgroundColor: '#E50914',
             color: '#C13584',
             opacity: 0.5,
