@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import styles from '../styles/styles'
 import CommentSection from '../components/CommentSection'
 import HomeScreen from '../components/HomeScreen'
+import TuneShareLogo from '../components/TuneShareLogo'
 
 const Stack = createStackNavigator()
 
@@ -14,8 +15,8 @@ const HomeStack = () => {
       <Stack.Screen
         name='HomeScreen'
         component={HomeScreen}
-        options={() => ({
-          title: appTitle,
+        options={props => ({
+          headerTitle: () => <TuneShareLogo {...props} />,
           headerStyle: styles.mainHeader,
           headerTitleStyle: styles.appTitle,
         })}

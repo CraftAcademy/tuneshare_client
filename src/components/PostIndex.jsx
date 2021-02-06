@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, Dimensions } from 'react-native'
 import { Card } from 'react-native-elements'
 import styles from '../styles/styles'
@@ -12,6 +12,7 @@ import LikeService from '../modules/LikeService'
 const PostIndex = ({ post }) => {
   const navigation = useNavigation()
   const { credentials } = useSelector(state => state)
+  const [likeColor, setLikeColor] = useState('#36a9e3')
 
   return (
     <View style={styles.card_container} testID='post-index'>
@@ -38,11 +39,12 @@ const PostIndex = ({ post }) => {
           <Octicons
             name='flame'
             size={24}
-            color='black'
+            color={likeColor}
             testID={`likeButton-${post.id}`}
             onPress={() => {
               LikeService.create(post.id, credentials)
               PostService.index()
+              setLikeColor('#ff5f42')
             }}
           ></Octicons>
           <Text testID={`likeCount-${post.id}`}>{post.likes}</Text>
@@ -53,7 +55,19 @@ const PostIndex = ({ post }) => {
               navigation.navigate('CommentSection', { post: post })
             }
           >
-            <Text>Comment</Text>
+            <Text
+              style={{
+                color: '#4104ba',
+                fontFamily: 'Kohinoor Bangla',
+                textShadowColor: '#b38bc9',
+                textShadowRadius: 0.1,
+                textShadowOffset: { width: -0.2, height: 0.02 },
+                fontWeight: 'bold',
+                fontSize: '16',
+              }}
+            >
+              Leave A Comment...
+            </Text>
           </TouchableOpacity>
         </View>
       </Card>

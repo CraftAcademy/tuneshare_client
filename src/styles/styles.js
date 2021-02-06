@@ -79,12 +79,9 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   commentButton: {
-    padding: 12,
+    flexDirection: 'row',
+    padding: 16,
     marginRight: 6,
-    fontFamily: 'Helvetica',
-    color: 'dodgerblue',
-    alignItems: 'left',
-    fontSize: 15,
   },
   loginHitSlop: {
     bottom: 20,
