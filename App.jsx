@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import styles from './src/styles/styles'
 import FlashMessage from 'react-native-flash-message'
 import ProfileStack from './src/screens/ProfileStack'
+import { Ionicons } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -19,9 +20,37 @@ const App = () => {
     return (
       <NavigationContainer style={{ height: 10 }}>
         <Tab.Navigator>
-          <Tab.Screen name='Feed' component={HomeStack} />
-          <Tab.Screen name='Post' component={PostForm} />
-          <Tab.Screen name='Profile' component={ProfileStack} />
+          <Tab.Screen
+            name='Feed'
+            component={HomeStack}
+            options={{
+              tabBarIcon: () => (
+                <Ionicons name='musical-notes' size={24} color='blue' />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name='Post'
+            component={PostForm}
+            options={{
+              tabBarIcon: () => (
+                <Ionicons name='md-add-circle-outline' size={24} color='blue' />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name='Profile'
+            component={ProfileStack}
+            options={{
+              tabBarIcon: () => (
+                <Ionicons
+                  name='ios-person-circle-outline'
+                  size={24}
+                  color='blue'
+                />
+              ),
+            }}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     )
@@ -33,11 +62,7 @@ const App = () => {
             name='Login'
             component={LoginScreen}
             testID='login-screen'
-            options={{
-              title: 'Log In To TuneShare',
-              headerStyle: styles.mainHeader,
-              headerTitleStyle: styles.appTitle,
-            }}
+            options={{ headerShown: false }}
           />
         </Stack.Navigator>
         <FlashMessage testID='flash-message' position='center' />

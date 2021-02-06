@@ -28,7 +28,7 @@ const SinglePost = () => {
         </Text>
         <Card.Divider />
       </Card>
-      <Button title="Back To Profile" onPress={() => navigation.goBack()}/>
+      <Button title='Back To Profile' onPress={() => navigation.goBack()} />
     </View>
   )
 }
