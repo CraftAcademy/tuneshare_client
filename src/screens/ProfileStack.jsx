@@ -19,7 +19,13 @@ const HomeStack = () => {
           headerTitleStyle: styles.appTitle,
         })}
       />
-      <Stack.Screen name='SinglePost' component={SinglePost} />
+      <Stack.Screen
+        name='SinglePost'
+        options={() => ({
+          headerShown: false,
+        })}
+        component={SinglePost}
+      />
     </Stack.Navigator>
   )
 }

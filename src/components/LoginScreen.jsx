@@ -12,6 +12,7 @@ import styles from '../styles/styles'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Fontisto } from '@expo/vector-icons'
 import { useDispatch } from 'react-redux'
+import TuneShareLogo from './TuneShareLogo'
 
 const LoginScreen = props => {
   const [email, setEmail] = useState('')
@@ -21,6 +22,7 @@ const LoginScreen = props => {
   const deviseAuth = new Auth({
     host: 'https://tuneshare-2021.herokuapp.com',
   })
+
 
   const authWithDevise = async () => {
     await deviseAuth
@@ -44,6 +46,7 @@ const LoginScreen = props => {
   return (
     <View style={{ flex: 1, flexDirection: 'column' }} testID='login-screen'>
       <ImageBackground source={image} style={styles.loginImage}>
+        <TuneShareLogo />
         <TextInput
           testID='login-email'
           placeholderTextColor='white'

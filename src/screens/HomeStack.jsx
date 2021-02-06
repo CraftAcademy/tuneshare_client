@@ -20,7 +20,20 @@ const HomeStack = () => {
           headerTitleStyle: styles.appTitle,
         })}
       />
-      <Stack.Screen name='CommentSection' component={CommentSection} />
+      <Stack.Screen
+        options={() => ({
+          title: 'Comment Sloth',
+          headerStyle: { backgroundColor: '#e7e0ff' },
+          headerTitleStyle: {
+            color: '#3e246e',
+            textShadowColor: '#d3ebf2',
+            textShadowRadius: 0.5,
+            fontFamily: 'HiraginoSans-W6',
+          },
+        })}
+        name='CommentSection'
+        component={CommentSection}
+      />
     </Stack.Navigator>
   )
 }
