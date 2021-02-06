@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux'
 import store from '../state/store/store'
 import styles from '../styles/styles'
 import PostService from '../modules/PostService'
+import { Ionicons } from '@expo/vector-icons'
 
 const PostForm = props => {
   const [search, setSearch] = useState()

@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Copperplate',
     color: '#4f1973',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   track: {
     fontSize: 22,
-    fontFamily: 'Gurmukhi MN', 
+    fontFamily: 'Gurmukhi MN',
     color: '#1c052b',
   },
   image: {
@@ -98,16 +98,21 @@ const styles = StyleSheet.create({
     top: 50,
   },
   loginSubmit: {
-    width: '50%',
-    height: '20%',
-    borderRadius: 320,
-    borderLeftColor: '#c9243a',
-    borderLeftWidth: 0.8,
-    borderBottomWidth: 1,
+    width: 120,
+    height: 120,
+    borderRadius: 360,
+    borderLeftColor: '#28eb79',
+    borderLeftWidth: 0.3,
+    borderBottomWidth: 0.5,
     borderBottomColor: '#28eb79',
     alignSelf: 'center',
+    color: '#1DB954',
+    backgroundColor: '#1DB954',
     marginTop: 35,
     marginBottom: 20,
+    alignContent: 'center',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   linearGradient: {
     paddingLeft: 2,
@@ -115,33 +120,33 @@ const styles = StyleSheet.create({
     borderColor: '#013220',
   },
   buttonContent: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    fontFamily: 'Helvetica',
     paddingTop: 20,
     paddingBottom: 40,
+    borderRadius: 320,
     paddingLeft: 20,
     color: '#ffffff',
-    backgroundColor: 'transparent',
+    backgroundColor: '#1DB954',
     justifyContent: 'center',
     textShadowColor: '#013220',
     textShadowRadius: 4,
   },
   loginInput: {
-    marginTop: 2,
-    marginBottom: 22,
-    marginRight: 10,
-    marginLeft: 10,
+    // marginTop: 2,
+    // marginBottom: 22,
+    // marginRight: 10,
+    // marginLeft: 10,
     height: 60,
     borderColor: '#778899',
     borderWidth: 0.8,
-    borderRadius: 32,
+    borderRadius: 320,
     backgroundColor: 'rgba(0,0,0,0.2)',
     color: 'white',
     textShadowColor: 'black',
     textShadowRadius: 4,
-    fontWeight: 'bold',
     paddingLeft: 10,
+    // alignContent: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center'
   },
   loginImage: {
     flex: 1,
@@ -206,7 +211,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 30,
   },
-  
 })
 
 export default styles
