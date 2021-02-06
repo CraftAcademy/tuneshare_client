@@ -26,28 +26,16 @@ const PostIndex = ({ post }) => {
         <Card.Title testID={`post-artist-${post.id}`} style={styles.artists}>
           {post.artists}
         </Card.Title>
-        <Card.Divider />
+        <Card.Divider style={styles.cardDivider} />
         <Card.Image style={styles.image} source={{ uri: post.image }}>
           <TrackPlayer post={post} />
         </Card.Image>
-        <Card.Divider />
+        <Card.Divider style={styles.cardDivider} />
         <Text testID={`post-description-${post.id}`} style={styles.description}>
           {post.description}
         </Text>
-        <Card.Divider />
+        <Card.Divider style={styles.cardDivider} />
         <View style={{ flexDirection: 'row' }}>
-          <Octicons
-            name='flame'
-            size={24}
-            color={likeColor}
-            testID={`likeButton-${post.id}`}
-            onPress={() => {
-              LikeService.create(post.id, credentials)
-              PostService.index()
-              setLikeColor('#ff5f42')
-            }}
-          ></Octicons>
-          <Text testID={`likeCount-${post.id}`}>{post.likes}</Text>
           <TouchableOpacity
             style={styles.commentButton}
             testID='comment-button'
@@ -69,6 +57,31 @@ const PostIndex = ({ post }) => {
               Leave A Comment...
             </Text>
           </TouchableOpacity>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignSelf: 'right',
+              marginLeft: 120,
+            }}
+          >
+            <Octicons
+              name='flame'
+              size={24}
+              color={likeColor}
+              testID={`likeButton-${post.id}`}
+              onPress={() => {
+                LikeService.create(post.id, credentials)
+                PostService.index()
+                setLikeColor('#ff5f42')
+              }}
+            ></Octicons>
+            <Text
+              style={{ color: likeColor, fontWeight: 'bold', padding: 1 }}
+              testID={`likeCount-${post.id}`}
+            >
+              {post.likes}
+            </Text>
+          </View>
         </View>
       </Card>
     </View>

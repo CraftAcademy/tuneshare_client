@@ -31,24 +31,31 @@ const styles = StyleSheet.create({
   },
   artists: {
     fontSize: 20,
-    fontFamily: 'Arial',
-    fontWeight: 'bold',
-    color: 'black',
+    fontFamily: 'Copperplate',
+    color: '#4f1973',
+    fontWeight: 'bold'
   },
   track: {
-    fontSize: 25,
-    fontFamily: 'Arial',
-    color: 'black',
+    fontSize: 22,
+    fontFamily: 'Gurmukhi MN', 
+    color: '#1c052b',
   },
   image: {
     margin: 5,
     resizeMode: 'contain',
   },
   description: {
-    fontFamily: 'Arial',
+    fontFamily: 'Optima',
     fontSize: 15,
+    fontWeight: 'bold',
     color: 'black',
-    paddingBottom: 10,
+    padding: 12,
+  },
+  cardDivider: {
+    backgroundColor: 'rgba(227,144,43,0.6)',
+    width: '94%',
+    alignSelf: 'center',
+    padding: 1,
   },
   playButton: {
     color: 'grey',
@@ -150,11 +157,17 @@ const styles = StyleSheet.create({
     borderBottomColor: '#F5FCFF',
     backgroundColor: '#FFFFFF',
     borderRadius: 30,
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.4,
+    borderLeftWidth: 0.3,
+    borderTopWidth: 0.05,
+    borderRightWidth: 0.05,
     flexDirection: 'row',
     alignItems: 'center',
-    margin: 10,
-    backgroundColor: 'rgba(27, 34, 224,0.4)',
+    marginTop: 20,
+    marginLeft: 6,
+    marginRight: 6,
+    marginBottom: 12,
+    backgroundColor: 'rgba(161, 163, 173,0.3)',
     color: '#ffffff',
     textShadowColor: '#320054',
   },
@@ -162,9 +175,9 @@ const styles = StyleSheet.create({
     height: 45,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
+    marginLeft: 130,
     width: 70,
-    alignSelf: 'flex-end',
+    alignSelf: 'right',
     backgroundColor: '#40E0D0',
     borderRadius: 30,
   },
@@ -175,11 +188,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     flexDirection: 'row',
     borderRadius: 10,
-  },
-  description: {
-    fontSize: 18,
-    color: '#3498db',
-    marginLeft: 10,
   },
   postButton: {
     marginTop: 30,
@@ -192,6 +200,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 30,
   },
+  
 })
 
 export default styles

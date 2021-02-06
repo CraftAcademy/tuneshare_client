@@ -30,7 +30,9 @@ const PostForm = props => {
         <View style={styles.inputContent}>
           <TextInput
             testID='searchInput'
+            style={{ color: '#40E0D0', paddingLeft: 4 }}
             placeholder='Search a song to create a post!'
+            placeholderTextColor='#ffffff'
             onChangeText={text => setSearch(text)}
             value={search || ''}
           />
@@ -39,7 +41,7 @@ const PostForm = props => {
             testID='searchButton'
             onPress={() => TrackService.index(search)}
           >
-            <Text>Search</Text>
+            <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Search</Text>
           </TouchableHighlight>
         </View>
         <FlatList
@@ -48,7 +50,7 @@ const PostForm = props => {
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <ListItem
-              // style={styles.searchResultBox}
+              style={styles.searchResultBox}
               testID={`result-${item.id}`}
               onPress={() =>
                 store.dispatch({
