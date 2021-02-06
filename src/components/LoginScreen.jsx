@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {
   View,
-  TextInput,
   Text,
   TouchableOpacity,
   ImageBackground,
@@ -52,44 +51,11 @@ const LoginScreen = (props) => {
     setResponse(resp);
   };
 
-  // const authWithDevise = async () => {
-  //   await deviseAuth
-  //     .signIn(email, password)
-  //     .then((resp) => {
-  //       props.navigation.navigate('HomeScreen')
-  //       dispatch({
-  //         type: 'SET_CURRENT_USER',
-  //         payload: {
-  //           authenticated: true,
-  //         },
-  //       })
-  //     })
-  //     .catch((error) => {
-  //       setLoginMessage(error.response.data.errors[0])
-  //     })
-  // }
-
   const image = require('../images/image.png')
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }} testID="login-screen">
       <ImageBackground source={image} style={styles.loginImage}>
-        {/* <TextInput
-          testID="login-email"
-          placeholderTextColor='white'
-          style={styles.loginInput}
-          placeholder="Enter your email..."
-          onChangeText={(text) => setEmail(text)}
-        />
-        <TextInput
-          testID="login-password"
-          placeholderTextColor='white'
-          secureTextEntry={true}
-          style={styles.loginInput}
-          placeholder="Enter your password..."
-          onChangeText={(text) => setPassword(text)}
-        /> */}
-
         <TouchableOpacity
           raised="true"
           testID="login-submit"
