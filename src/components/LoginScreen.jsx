@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, TouchableOpacity, ImageBackground } from 'react-native'
-import Auth from '../modules/AuthDevise'
-import { showMessage } from 'react-native-flash-message'
 import styles from '../styles/styles'
-import { LinearGradient } from 'expo-linear-gradient'
 import { Fontisto } from '@expo/vector-icons'
 import { useDispatch } from 'react-redux'
 import * as WebBrowser from 'expo-web-browser'
 import * as Linking from 'expo-linking'
 import AsyncStorage from '@react-native-community/async-storage'
+// import Auth from '../modules/AuthDevise'
+// import { showMessage } from 'react-native-flash-message'
+// import { LinearGradient } from 'expo-linear-gradient'
 
 const LoginScreen = props => {
   const storage = AsyncStorage
@@ -61,7 +61,7 @@ const LoginScreen = props => {
             authWithSpotify()
           }}
         >
-          <Text 
+          <Text
           // style={styles.buttonContent}
           >
             <Fontisto
