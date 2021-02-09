@@ -1,4 +1,4 @@
-# tuneshare_client
+# TuneShare Client
 
 ## Description
 
