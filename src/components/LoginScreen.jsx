@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, TouchableOpacity, ImageBackground } from 'react-native'
+import Auth from '../modules/AuthDevise'
+import { showMessage } from 'react-native-flash-message'
 import styles from '../styles/styles'
+import { LinearGradient } from 'expo-linear-gradient'
 import { Fontisto } from '@expo/vector-icons'
 import { useDispatch } from 'react-redux'
 import * as WebBrowser from 'expo-web-browser'
 import * as Linking from 'expo-linking'
 import AsyncStorage from '@react-native-community/async-storage'
-// import Auth from '../modules/AuthDevise'
-// import { showMessage } from 'react-native-flash-message'
-// import { LinearGradient } from 'expo-linear-gradient'
 
-const LoginScreen = (props) => {
+const LoginScreen = props => {
   const storage = AsyncStorage
   const storageKey = 'auth-storage'
   const [response, setResponse] = useState(null)
-  const dispatch = useDispatch()
+
   // const [email, setEmail] = useState('')
   // const [password, setPassword] = useState('')
   // const [loginMessage, setLoginMessage] = useState()
+  const dispatch = useDispatch()
   // const deviseAuth = new Auth({
   //   host: 'https://tuneshare-2021.herokuapp.com',
   // })
@@ -46,65 +47,27 @@ const LoginScreen = (props) => {
     setResponse(resp)
   }
 
-  // const authWithDevise = async () => {
-  //   await deviseAuth
-  //     .signIn(email, password)
-  //     .then(resp => {
-  //       props.navigation.navigate('HomeScreen')
-  //       dispatch({
-  //         type: 'SET_CURRENT_USER',
-  //         payload: {
-  //           authenticated: true,
-  //         },
-  //       })
-  //     })
-  //     .catch(error => {
-  //       setLoginMessage(error.response.data.errors[0])
-  //     })
-  // }
-
   const image = require('../images/image.png')
 
   return (
-    <View style={{ flex: 1, flexDirection: 'column' }} testID="login-screen">
+    <View style={{ flex: 1, flexDirection: 'column' }} testID='login-screen'>
       <ImageBackground source={image} style={styles.loginImage}>
-        {/* <TextInput
-          testID="login-email"
-          placeholderTextColor="white"
-          style={styles.loginInput}
-          placeholder="Enter your email..."
-          onChangeText={(text) => setEmail(text)}
-        />
-        <TextInput
-          testID="login-password"
-          placeholderTextColor="white"
-          secureTextEntry={true}
-          style={styles.loginInput}
-          placeholder="Enter your password..."
-          onChangeText={(text) => setPassword(text)}
-        /> */}
         <TouchableOpacity
-          raised="true"
-          testID="login-submit"
+          raised='true'
+          testID='login-submit'
           hitSlop={styles.loginHitSlop}
           style={styles.loginSubmit}
           onPress={() => {
             authWithSpotify()
-            // authWithDevise()
           }}
         >
-          <Text
+          <Text 
           // style={styles.buttonContent}
           >
             <Fontisto
-              name="spotify"
-              style={{
-                paddingLeft: 32,
-                paddingTop: 12,
-                paddingBottom: 12,
-                paddingRight: 32,
-              }}
-              color="#ffffff"
+              name='spotify'
+              style={{ paddingLeft: 32, paddingTop: 12, paddingBottom: 12, paddingRight: 32}}
+              color='#ffffff'
               size={77}
             />
           </Text>
