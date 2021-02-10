@@ -1,7 +1,7 @@
 import axios from 'axios'
 import store from '../state/store/store'
 
-const API_URL = 'https://tuneshare-2021.herokuapp.com/api'
+const API_URL = 'http://localhost:3000/api'
 
 const Comments = {
   async index(postId) {

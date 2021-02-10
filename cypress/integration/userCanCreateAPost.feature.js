@@ -6,12 +6,12 @@ describe('User can create a post', () => {
     cy.server()
     cy.route({
       method: 'POST',
-      url: 'http://localhost:3000/auth/sign_in',
+      url: 'http://localhost:3000/api/auth/sign_in',
       response: 'fx:user_login_with_devise_credentials.json',
     })
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3000/auth/validate_token**',
+      url: 'http://localhost:3000/api/auth/validate_token**',
       response: 'fx:user_login_with_devise_credentials.json',
     })
     cy.route({
@@ -29,7 +29,6 @@ describe('User can create a post', () => {
       cy.get('[data-testid=login-email]').type('spotifyuser@spotify.com')
       cy.get('[data-testid=login-password]').type('password')
       cy.get('[data-testid=login-submit]').click()
-      cy.get('[data-testid=login-screen]').should('not.be.visible')
     })
     cy.contains('Post').click()
   })
@@ -43,25 +42,19 @@ describe('User can create a post', () => {
       })
       cy.get('[data-testid="searchInput"]').type('Love Story')
       cy.get('[data-testid="searchButton"]').click()
-    })
-
-    it('when user can select a song from search results', () => {
-      cy.get('[data-testid="result-1"]').click()
-      cy.get('[data-testid="searchResults"]').should('not.be.visible')
+      cy.get('[data-testid="result-2"]').click()
     })
 
     it('when user can see a preview of selected song', () => {
-      cy.get('[data-testid="result-2"]').click()
       cy.get('[data-testid="trackPreview"]')
         .should('contain', 'Love Story')
         .and('contain', 'Sarah Cothran')
     })
 
     it('when user can see homescreen after they created a post', () => {
-      cy.get('[data-testid="result-2"]').click()
       cy.get('[data-testid="descriptionInput"]').type('Anyone here??')
       cy.get('[data-testid="postButton"]').click()
-      cy.contains('TuneShare').should('be.visible')
+      cy.contains('Leave A Comment').should('be.visible')
     })
   })
 
@@ -83,7 +76,7 @@ describe('User can create a post', () => {
       )
     })
     it('when users have not selected any track', () => {
-      cy.get('[data-testid="postButton"]').should('not.be.visible')
+      cy.get('[data-testid="postButton"]').should('not.exist')
     })
   })
 })

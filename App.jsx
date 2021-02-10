@@ -20,38 +20,51 @@ const App = () => {
     return (
       <NavigationContainer style={{ height: 10 }}>
         <Tab.Navigator
-          tabBarOptions={{ showIcon: true, showLabel: false, backgroundColor: 'rgba(227,255,232,0.1)'}}
+          screenOptions={({ route }) => ({
+            tabBarIcon: () => {
+              if (route.name === 'Feed') {
+                return (
+                  <Ionicons
+                    name='musical-notes'
+                    size={28}
+                    color='#4b1e8a'
+                  />
+                );
+              } else if (route.name === 'Post') {
+                return (
+                  <Ionicons
+                    name='md-add-circle-outline'
+                    size={28}
+                    color='#4b1e8a'
+                  />
+                );
+              } else if (route.name === 'Profile') {
+                return (
+                  <Ionicons
+                    name='ios-person-circle-outline'
+                    size={28}
+                    color='#4b1e8a'
+                  />
+                )
+              }
+            },
+          })}
+          tabBarOptions={{
+            activeTintColor: 'orange',
+            inactiveTintColor: 'gray',
+          }}
         >
           <Tab.Screen
             name='Feed'
             component={HomeStack}
-            options={{
-              tabBarIcon: () => (
-                <Ionicons name='musical-notes' size={28} color='#4b1e8a' />
-              ),
-            }}
           />
           <Tab.Screen
             name='Post'
             component={PostForm}
-            options={{
-              tabBarIcon: () => (
-                <Ionicons name='md-add-circle-outline' size={28} color='#4b1e8a' />
-              ),
-            }}
           />
           <Tab.Screen
             name='Profile'
             component={ProfileStack}
-            options={{
-              tabBarIcon: () => (
-                <Ionicons
-                  name='ios-person-circle-outline'
-                  size={28}
-                  color='#4b1e8a'
-                />
-              ),
-            }}
           />
         </Tab.Navigator>
       </NavigationContainer>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   TextInput,
   ImageBackground,
-  TouchableHighlight,
+  TouchableOpacity,
   FlatList,
   SafeAreaView,
   Text,
@@ -37,14 +37,14 @@ const PostForm = props => {
             onChangeText={text => setSearch(text)}
             value={search || ''}
           />
-          <TouchableHighlight
+          <TouchableOpacity
             style={styles.searchButton}
             testID='searchButton'
             onPress={() => TrackService.index(search)}
           >
             <Ionicons name='md-search-circle-sharp' size={42} color='white' />
             <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>Search</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
         <FlatList
           testID='searchResults'
@@ -95,7 +95,7 @@ const PostForm = props => {
                 testID='descriptionInput'
                 onChangeText={text => setDescription(text)}
               />
-              <TouchableHighlight
+              <TouchableOpacity
                 style={styles.postButton}
                 testID='postButton'
                 color='black'
@@ -109,7 +109,7 @@ const PostForm = props => {
                 }
               >
                 <Text>Post</Text>
-              </TouchableHighlight>
+              </TouchableOpacity>
             </>
           )}
           <Text testID='errorMessage'>{errorMessage}</Text>
