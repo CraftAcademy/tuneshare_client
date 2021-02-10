@@ -38,38 +38,38 @@ yarn web
 
 ## Dependencies
 
-    "@expo-google-fonts/pacifico": "^0.1.0",
-    "@expo/vector-icons": "^12.0.0",
-    "@react-native-community/async-storage": "^1.12.1",
-    "@react-native-community/masked-view": "0.1.10",
-    "@react-navigation/bottom-tabs": "^5.11.7",
-    "@react-navigation/native": "^5.9.2",
-    "@react-navigation/stack": "^5.14.2",
-    "axios": "^0.21.1",
-    "expo": "~40.0.0",
-    "expo-auth-session": "~3.0.0",
-    "expo-av": "~8.7.0",
-    "expo-font": "~8.4.0",
-    "expo-linear-gradient": "~8.4.0",
-    "expo-linking": "~2.0.1",
-    "expo-random": "~10.0.0",
-    "expo-status-bar": "~1.0.3",
-    "expo-web-browser": "~8.6.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
-    "react-native-elements": "^3.1.0",
-    "react-native-flash-message": "^0.1.22",
-    "react-native-gesture-handler": "~1.8.0",
-    "react-native-linear-gradient": "^2.5.6",
-    "react-native-reanimated": "~1.13.0",
-    "react-native-safe-area-context": "3.1.9",
-    "react-native-screens": "~2.15.2",
-    "react-native-vector-icons": "6.6.0",
-    "react-native-web": "~0.13.12",
-    "react-native-web-linear-gradient": "^1.1.1",
-    "react-redux": "^7.2.2",
-    "redux": "^4.0.5"
+* Expo-google-fonts/pacifico
+* Expo/vector-icons
+* React-native-community/async-storage
+* React-native-community/masked-view
+* React-navigation/bottom-tabs
+* React-navigation/native
+* React-navigation/stack
+* Axios
+* Expo
+* Expo-auth-session
+* Expo-av
+* Expo-font
+* Expo-linear-gradient
+* Expo-linking
+* Expo-random
+* Expo-status-bar
+* Expo-web-browser
+* React
+* React-dom
+* React-native
+* React-native-elements
+* React-native-flash-message
+* React-native-gesture-handler
+* React-native-linear-gradient
+* React-native-reanimated
+* React-native-safe-area-context
+* React-native-screens
+* React-native-vector-icons
+* React-native-web
+* React-native-web-linear-gradient
+* React-redux
+* Redux
 
 ## Acknowledgements
 
