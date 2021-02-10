@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from '../state/store/store'
 import AsyncStorage from '@react-native-community/async-storage'
 
-const apiUrl = 'http://localhost:3000/api'
+const apiUrl = 'https://tuneshare-ca.herokuapp.com/api'
 const defaultOptions = {
   host: apiUrl,
   mode: 'local',
