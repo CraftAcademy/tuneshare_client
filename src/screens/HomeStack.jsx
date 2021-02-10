@@ -20,7 +20,6 @@ const HomeStack = () => {
             <Image source={image} style={styles.appTitle} />
           ),
           headerStyle: styles.mainHeader,
-          // headerTitleStyle: styles.appTitle,
         }}
       />
       <Stack.Screen

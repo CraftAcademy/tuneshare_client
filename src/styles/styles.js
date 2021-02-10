@@ -131,10 +131,6 @@ const styles = StyleSheet.create({
     textShadowRadius: 4,
   },
   loginInput: {
-    // marginTop: 2,
-    // marginBottom: 22,
-    // marginRight: 10,
-    // marginLeft: 10,
     height: 60,
     borderColor: '#778899',
     borderWidth: 0.8,
@@ -144,9 +140,6 @@ const styles = StyleSheet.create({
     textShadowColor: 'black',
     textShadowRadius: 4,
     paddingLeft: 10,
-    // alignContent: 'center',
-    // justifyContent: 'center',
-    // alignItems: 'center'
   },
   loginImage: {
     flex: 1,

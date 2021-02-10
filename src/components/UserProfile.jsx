@@ -35,7 +35,7 @@ const UserProfile = () => {
       <View style={styles.profileHeader}>
         <Image style={styles.avatar} source={image} />
         <Text testID='user-email' style={styles.name}>
-          {userEmail || currentUser.email}
+          {userEmail}
         </Text>
       </View>
 

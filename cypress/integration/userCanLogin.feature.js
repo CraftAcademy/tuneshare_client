@@ -14,11 +14,6 @@ describe('User login with devise', () => {
       url: 'http://localhost:3000/api/tracks?q=**',
       response: { tracks: tracks },
     })
-    cy.route({
-      method: 'GET',
-      url: 'http://localhost:3000/auth/validate_token**',
-      response: 'fx:user_login_with_devise_credentials.json',
-    })
     cy.visit('/')
   })
 
@@ -26,22 +21,22 @@ describe('User login with devise', () => {
     beforeEach(() => {
       cy.route({
         method: 'POST',
-        url: 'http://localhost:3000/auth/sign_in',
+        url: 'http://localhost:3000/api/auth/sign_in',
         response: 'fx:user_login_with_devise_credentials.json',
       })
       cy.route({
         method: 'GET',
-        url: 'http://localhost:3000/auth/validate_token**',
+        url: 'http://localhost:3000/api/auth/validate_token**',
         response: 'fx:user_login_with_devise_credentials.json',
       })
       cy.visit('/')
     })
-    it('when using spotify credentials', () => {
+    it('when valid credentials', () => {
       cy.get('[data-testid=login-screen]').within(() => {
         cy.get('[data-testid=login-email]').type('spotifyuser@spotify.com')
         cy.get('[data-testid=login-password]').type('password')
         cy.get('[data-testid=login-submit]').click()
-        cy.get('[data-testid=login-screen]').should('not.be.visible')
+        cy.get('[data-testid=login-screen]').should('not.exist')
       })
     })
   })
@@ -63,7 +58,7 @@ describe('User login with devise', () => {
       })
       cy.visit('/')
     })
-    it('with invalid spotify credentials', () => {
+    it('with invalid credentials', () => {
       cy.get('[data-testid=login-screen]').within(() => {
         cy.get('[data-testid=login-email]').type('sporp@sporp.com')
         cy.get('[data-testid=login-password]').type('password')
