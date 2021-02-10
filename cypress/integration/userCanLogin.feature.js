@@ -31,12 +31,12 @@ describe('User login with devise', () => {
       })
       cy.visit('/')
     })
-    it('when using spotify credentials', () => {
+    it('when valid credentials', () => {
       cy.get('[data-testid=login-screen]').within(() => {
         cy.get('[data-testid=login-email]').type('spotifyuser@spotify.com')
         cy.get('[data-testid=login-password]').type('password')
         cy.get('[data-testid=login-submit]').click()
-        cy.get('[data-testid=login-screen]').should('not.be.visible')
+        cy.get('[data-testid=login-screen]').should('not.exist')
       })
     })
   })
@@ -58,7 +58,7 @@ describe('User login with devise', () => {
       })
       cy.visit('/')
     })
-    it('with invalid spotify credentials', () => {
+    it('with invalid credentials', () => {
       cy.get('[data-testid=login-screen]').within(() => {
         cy.get('[data-testid=login-email]').type('sporp@sporp.com')
         cy.get('[data-testid=login-password]').type('password')

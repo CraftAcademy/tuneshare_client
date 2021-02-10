@@ -50,7 +50,7 @@ const App = () => {
             },
           })}
           tabBarOptions={{
-            activeTintColor: 'orange',
+            activeTintColor: 'purple',
             inactiveTintColor: 'gray',
           }}
         >
